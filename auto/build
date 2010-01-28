@@ -1,0 +1,7 @@
+#! /bin/bash
+
+cd `dirname $0`
+
+. ./functions/header_files
+
+generate_all_files

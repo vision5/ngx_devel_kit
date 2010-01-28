@@ -1,0 +1,10 @@
+Changelog
+---------
+
+0.1         feature : set_var functions
+0.1.1       feature : upstream_list directive and functions
+0.2         feature : conf merge functions
+            feature : conf command macros
+            feature : 'action' macros
+0.2.1       bugfix  : ndk_map_uri_to_path_add_suffix
+0.2.2       feature : regex conf functions

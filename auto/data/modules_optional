@@ -1,0 +1,13 @@
+complex_path
+complex_value
+conf_file
+encoding
+hash
+log
+path
+regex
+rewrite
+set_var
+string
+upstream_list   *
+uri

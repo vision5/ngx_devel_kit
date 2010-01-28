@@ -1,0 +1,9 @@
+r0          return 0
+r1          return 1
+r_1         return -1
+rok         return %OK%
+rce         return %CE%
+rcok        return %COK%
+re          return %E%
+rn          return NULL
+g(_lb)      goto _lb

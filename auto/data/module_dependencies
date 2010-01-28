@@ -1,0 +1,3 @@
+complex_path    complex_value   path
+core            log
+set_var         rewrite 
