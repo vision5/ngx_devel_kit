@@ -8,3 +8,4 @@ Changelog
             feature : 'action' macros
 0.2.1       bugfix  : ndk_map_uri_to_path_add_suffix
 0.2.2       feature : regex conf functions
+0.2.3       feature : version number
