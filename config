@@ -4,4 +4,4 @@ HTTP_INCS="$HTTP_INCS $ngx_addon_dir/src $ngx_addon_dir/src/auto"
 NGX_ADDON_SRCS="$NGX_ADDON_SRCS $ngx_addon_dir/ndk.c"
 CFLAGS="$CFLAGS -DNDK"
 
-# TODO : call build script automatically
+$ngx_addon_dir/auto/build

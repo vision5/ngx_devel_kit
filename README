@@ -5,7 +5,7 @@ Name
 
 Version
 
-    0.2.3 (pre-release)
+    0.2.4 (pre-release)
 
 
 Synopsis
@@ -59,9 +59,7 @@ Usage for users
 
     2 - unpack the source (tar -xzf $name)
 
-    3 - run the build script ($src/auto/build)
-
-    4 - compile Nginx with the following extra option
+    3 - compile Nginx with the following extra option
 
         --add-module=/path/to/src
 

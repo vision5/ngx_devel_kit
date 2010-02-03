@@ -582,6 +582,7 @@ function generate_all_c_files {
 function generate_all_files {
 
     mkdir -p $output_dir
+    rm -f $output_dir/*
 
     generate_all_h_files
     generate_all_c_files
