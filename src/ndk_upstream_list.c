@@ -6,7 +6,7 @@
 ngx_array_t     *ndk_upstreams;
 
 typedef struct {
-    ngx_int_t       weight;
+    ngx_uint_t      weight;
     ngx_str_t       s;
     ngx_conf_t     *cf;
 } ndk_upstream_list_parse_t;
