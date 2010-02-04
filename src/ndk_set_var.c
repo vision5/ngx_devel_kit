@@ -417,7 +417,7 @@ ndk_set_var_filter (ngx_conf_t *cf, ngx_http_rewrite_loc_conf_t *rlcf,
         svsd->size = filter->size;
         svsd->data = filter->data;
 
-        ndk_set_variable_value_space (rlcf, svs->size);
+        ndk_set_variable_value_space (rlcf, svsd->size);
         break;
  
 
