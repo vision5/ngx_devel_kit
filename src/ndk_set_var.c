@@ -252,39 +252,42 @@ ndk_set_var_hash_code (ngx_http_script_engine_t *e)
 
 
 static char *
-ndk_set_var_name (ndk_set_var_info_t *info, ngx_str_t *name)
+ndk_set_var_name (ndk_set_var_info_t *info, ngx_str_t *varname)
 {
     ngx_int_t                        index;
     ngx_http_variable_t             *v;
     ngx_conf_t                      *cf;
     ngx_http_rewrite_loc_conf_t     *rlcf;
+    ngx_str_t                        name;
+
+    name = *varname;
 
     cf = info->cf;
     rlcf = ngx_http_conf_get_module_loc_conf (cf, ngx_http_rewrite_module);
 
-    if (name->data[0] != '$') {
+    if (name.data[0] != '$') {
         ngx_conf_log_error(NGX_LOG_EMERG, cf, 0,
-                           "invalid variable name \"%V\"", name);
+                           "invalid variable name \"%V\"", &name);
         return NGX_CONF_ERROR;
     }
 
-    name->len--;
-    name->data++;
+    name.len--;
+    name.data++;
 
-    v = ngx_http_add_variable (cf, name, NGX_HTTP_VAR_CHANGEABLE);
+    v = ngx_http_add_variable (cf, &name, NGX_HTTP_VAR_CHANGEABLE);
     if (v == NULL) {
         return NGX_CONF_ERROR;
     }
 
-    index = ngx_http_get_variable_index (cf, name);
+    index = ngx_http_get_variable_index (cf, &name);
     if (index == NGX_ERROR) {
         return NGX_CONF_ERROR;
     }
 
     if (v->get_handler == NULL
-        && ngx_strncasecmp(name->data, (u_char *) "http_", 5) != 0
-        && ngx_strncasecmp(name->data, (u_char *) "sent_http_", 10) != 0
-        && ngx_strncasecmp(name->data, (u_char *) "upstream_http_", 14) != 0)
+        && ngx_strncasecmp(name.data, (u_char *) "http_", 5) != 0
+        && ngx_strncasecmp(name.data, (u_char *) "sent_http_", 10) != 0
+        && ngx_strncasecmp(name.data, (u_char *) "upstream_http_", 14) != 0)
     {
         v->get_handler = ngx_http_rewrite_var;
         v->data = index;
@@ -575,14 +578,15 @@ char *
 ndk_set_var_value (ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
 {
     ngx_str_t               *value;
-    ndk_set_var_t      *filter;
+    ndk_set_var_t           *filter;
 
     value = cf->args->elts;
     value++;
 
     filter = (ndk_set_var_t *) cmd->post;
 
-    return  ndk_set_var_value_core (cf, value, value + 1, filter);
+    return  ndk_set_var_value_core (cf, value,
+            cf->args->nelts == 1 + 1 ? value : value + 1, filter);
 }
 
 
