@@ -18,14 +18,12 @@ index 770a590..0ff8789 100644
 -    const char *fmt, va_list args)
 -
 +ngx_log_error_core_extended(ngx_uint_t level, ngx_log_t *log,
-+                           const char *file, int line, const char
-*func, ngx_err_t err, const char *fmt,  ...)
++                           const char *file, int line, const char *func, ngx_err_t err, const char *fmt,  ...)
 +#endif
  #endif
  {
  #if (NGX_HAVE_VARIADIC_MACROS)
-@@ -107,6 +106,12 @@ ngx_log_error_core(ngx_uint_t level, ngx_log_t
-*log, ngx_err_t err,
+@@ -107,6 +106,12 @@ ngx_log_error_core(ngx_uint_t level, ngx_log_t *log, ngx_err_t err,
      p = ngx_slprintf(p, last, "%P#" NGX_TID_T_FMT ": ",
                      ngx_log_pid, ngx_log_tid);
 
@@ -52,24 +50,19 @@ index b736aa2..d0fc173 100644
  #define ngx_log_error(level, log, args...)                                    \
      if ((log)->log_level >= level) ngx_log_error_core(level, log, args)
 
-@@ -81,6 +82,18 @@ void ngx_log_error_core(ngx_uint_t level, ngx_log_t
-*log, ngx_err_t err,
+@@ -81,6 +82,18 @@ void ngx_log_error_core(ngx_uint_t level, ngx_log_t *log, ngx_err_t err,
  #define ngx_log_debug(level, log, args...)                                    \
      if ((log)->log_level & level)                                             \
          ngx_log_error_core(NGX_LOG_DEBUG, log, args)
 +#else
 +#define ngx_log_error(level, log, args...)                                    \
-+  if ((log)->log_level >= level) ngx_log_error_core_extended(level,
-log, __FILE__, __LINE__, __func__, args)
++  if ((log)->log_level >= level) ngx_log_error_core_extended(level, log, __FILE__, __LINE__, __func__, args)
 +
-+void ngx_log_error_core_extended(ngx_uint_t level, ngx_log_t *log,
-const char *file, int line,
-+                                const char *func, ngx_err_t err,
-const char *fmt, ...);
++void ngx_log_error_core_extended(ngx_uint_t level, ngx_log_t *log, const char *file, int line,
++                                const char *func, ngx_err_t err, const char *fmt, ...);
 +
 +#define ngx_log_debug(level, log, args...)                                    \
 +    if ((log)->log_level & level)                                             \
-+      ngx_log_error_core_extended(NGX_LOG_DEBUG, log, __FILE__,
-__LINE__ , __func__, args)
++      ngx_log_error_core_extended(NGX_LOG_DEBUG, log, __FILE__, __LINE__ , __func__, args)
 +
 +#endif 

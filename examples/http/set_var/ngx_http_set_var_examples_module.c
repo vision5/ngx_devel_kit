@@ -23,7 +23,7 @@ static ngx_command_t  ngx_http_set_var_examples_commands[] = {
     {
         ngx_string ("set_concat2"),
         NGX_HTTP_MAIN_CONF|NGX_HTTP_SRV_CONF|NGX_HTTP_SIF_CONF|NGX_HTTP_LOC_CONF|NGX_HTTP_LIF_CONF|NGX_CONF_TAKE3,
-        ngx_http_set_var_multi_value,
+        ndk_set_var_multi_value,
         0,
         0,
         &ngx_http_var_set_concat2
@@ -111,7 +111,7 @@ static char *
 ngx_http_set_append_hello (ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
 {
     ngx_str_t               s[2], *var_name;
-    ngx_http_set_var_t      filter;
+    ndk_set_var_t      filter;
 
     var_name = cf->args->elts;
     var_name++;
@@ -123,7 +123,7 @@ ngx_http_set_append_hello (ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
 
     filter.type = NDK_SET_VAR_MULTI_VALUE;
     filter.func = ngx_http_set_var_concat2;
-    filter.len = 2;
+    filter.size = 2;
 
     return  ndk_set_var_multi_value_core (cf, var_name, (ngx_str_t *) s, &filter);
 }
