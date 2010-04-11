@@ -74,9 +74,15 @@ ngx_http_set_var_concat2 (ngx_http_request_t *r, ngx_str_t *val, ngx_http_variab
 
     len = v->len + v2->len;
 
-    p = ngx_palloc (r->pool, len);
-    if (p == NULL)
-        return  NGX_ERROR;
+	/*
+	 NDK provided abbreviation for the following code:
+
+		p = ngx_palloc (r->pool, len);
+		if (p == NULL)
+			return  NGX_ERROR;
+
+	*/
+	ndk_palloc_re(p, r->pool, len);
 
     val->data = p;
     val->len = len;
