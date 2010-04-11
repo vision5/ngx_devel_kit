@@ -41,13 +41,13 @@ USAGE
 
     type                                use when there are these requirements
     ----                                -------------------------------------
-    NGX_HTTP_SET_VAR_BASIC              0 variable values, no extra data
-    NGX_HTTP_SET_VAR_DATA               0 variable values, extra data
-    NGX_HTTP_SET_VAR_VALUE              1 variable value, no extra data
-    NGX_HTTP_SET_VAR_VALUE_DATA         1 variable value, extra data
-    NGX_HTTP_SET_VAR_MULTI_VALUE        2+ variable values, no extra data
-    NGX_HTTP_SET_VAR_MULTI_VALUE_DATA   2+ variable values, extra data
-    NGX_HTTP_SET_VAR_HASH               the space needed for the result string 
+    NDK_SET_VAR_BASIC                   0 variable values, no extra data
+    NDK_SET_VAR_DATA                    0 variable values, extra data
+    NDK_SET_VAR_VALUE                   1 variable value, no extra data
+    NDK_SET_VAR_VALUE_DATA              1 variable value, extra data
+    NDK_SET_VAR_MULTI_VALUE             2+ variable values, no extra data
+    NDK_SET_VAR_MULTI_VALUE_DATA        2+ variable values, extra data
+    NDK_SET_VAR_HASH                    the space needed for the result string 
                                         value is known in advance (usually 
                                         used in a hash function)
 
@@ -60,13 +60,13 @@ USAGE
 
     type                                prototype
     ----                                ---------
-    NGX_HTTP_SET_VAR_BASIC              ngx_http_set_var_pt
-    NGX_HTTP_SET_VAR_DATA               ngx_http_set_var_data_pt
-    NGX_HTTP_SET_VAR_VALUE              ngx_http_set_var_value_pt
-    NGX_HTTP_SET_VAR_DATA_VALUE         ngx_http_set_var_value_data_pt
-    NGX_HTTP_SET_VAR_MULTI_VALUE        ngx_http_set_var_value_pt
-    NGX_HTTP_SET_VAR_MULTI_VALUE_DATA   ngx_http_set_var_value_data_pt
-    NGX_HTTP_SET_VAR_HASH               ngx_http_set_var_hash_pt
+    NDK_SET_VAR_BASIC                   ndk_set_var_pt
+    NDK_SET_VAR_DATA                    ndk_set_var_data_pt
+    NDK_SET_VAR_VALUE                   ndk_set_var_value_pt
+    NDK_SET_VAR_DATA_VALUE              ndk_set_var_value_data_pt
+    NDK_SET_VAR_MULTI_VALUE             ndk_set_var_value_pt
+    NDK_SET_VAR_MULTI_VALUE_DATA        ndk_set_var_value_data_pt
+    NDK_SET_VAR_HASH                    ndk_set_var_hash_pt
 
     (See ngx_tools_module.h for the prototype definitions.)
 

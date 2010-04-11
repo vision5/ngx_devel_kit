@@ -8,7 +8,7 @@
 
 
 static ngx_int_t    ngx_http_set_var_concat2    (ngx_http_request_t *r, ngx_str_t *val, ngx_http_variable_value_t *v);
-static char *       ngx_http_set_append_hello   (ngx_conf_t *cf, ngx_command_t *cmd, void *conf);
+static char *       ngx_http_set_prepend_hello   (ngx_conf_t *cf, ngx_command_t *cmd, void *conf);
 
 
 static  ndk_set_var_t      ngx_http_var_set_concat2 = {
@@ -29,9 +29,9 @@ static ngx_command_t  ngx_http_set_var_examples_commands[] = {
         &ngx_http_var_set_concat2
     },
     {
-        ngx_string ("set_append_hello"),
+        ngx_string ("set_prepend_hello"),
         NGX_HTTP_MAIN_CONF|NGX_HTTP_SRV_CONF|NGX_HTTP_SIF_CONF|NGX_HTTP_LOC_CONF|NGX_HTTP_LIF_CONF|NGX_CONF_TAKE1,
-        ngx_http_set_append_hello,
+        ngx_http_set_prepend_hello,
         0,
         0,
         NULL
@@ -102,7 +102,7 @@ ngx_http_set_var_concat2 (ngx_http_request_t *r, ngx_str_t *val, ngx_http_variab
     'hello_' to the beginning of a variable.
 
     set                 $var      world;
-    set_append_hello    $var      $var;
+    set_prepend_hello    $var      $var;
 
     If the arguments used in the variable value filter do not all come directly from the conf
     file, or are not given in the order
@@ -114,7 +114,7 @@ ngx_http_set_var_concat2 (ngx_http_request_t *r, ngx_str_t *val, ngx_http_variab
 */
 
 static char *
-ngx_http_set_append_hello (ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
+ngx_http_set_prepend_hello (ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
 {
     ngx_str_t               s[2], *var_name;
     ndk_set_var_t      filter;
