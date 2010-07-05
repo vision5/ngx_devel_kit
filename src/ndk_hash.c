@@ -11,10 +11,12 @@
     type ## _Update (&c, data, len);                        \
     type ## _Final (md, &c);                                \
                                                             \
-    for (i=0; i<ctxt_type ## _DIGEST_LENGTH; i++) {              \
-        p += sprintf (p, (upper ? "%02X" : "%02x"), md[i]); \
+    ngx_hex_dump((u_char *) p, (u_char *) md, ctxt_type ## _DIGEST_LENGTH);        \
+    if (upper) { \
+        for (i = 0; i < ctxt_type ## _DIGEST_LENGTH; i++) { \
+            *p = ngx_toupper(md[i]); \
+        } \
     }
-
 
 // TODO : check to see if can do consistent printing using "%08X" or in single go
 
