@@ -1,4 +1,4 @@
-
+#include "ndk_hash.h"
 
 // openssl hashes
 

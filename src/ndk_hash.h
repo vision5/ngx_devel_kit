@@ -1,22 +1,14 @@
-
+#ifndef NDK_HASH_H
+#define NDK_HASH_H
 
 // TODO : add more hashes
 
-#if (NGX_OPENSSL_MD5)
-#include    <md5.h>
-#include    <sha.h>
+#include <ngx_core.h>
+#include <ngx_md5.h>
+#include <ngx_sha1.h>
 
-#ifndef NDK_MD5
-#define NDK_MD5
-#endif
-
-#ifndef NDK_SHA1
-#define NDK_SHA1
-#endif
-
-#else
-#warning  using the MD5, SHA1... hash functions currently requires the OpenSSL module to be enabled \
-(e.g. --with-http-ssl-module) - those functions requiring this have not been enabled
+#ifndef SHA1_DIGEST_LENGTH
+#define SHA1_DIGEST_LENGTH SHA_DIGEST_LENGTH
 #endif
 
 #define NDK_MURMUR2   // NOTE : for now, always include
@@ -36,7 +28,10 @@ void    ndk_murmur2_hash        (char *p, char *data, size_t len);
 void    ndk_murmur2_lower_hash  (char *p, char *data, size_t len);
 #endif
 
-#ifdef NDK_SAH1
+#ifdef NDK_SHA1
 void    ndk_sha1_hash           (char *p, char *data, size_t len);
 void    ndk_sha1_lower_hash     (char *p, char *data, size_t len);
 #endif
+
+#endif /* NDK_HASH_H */
+
