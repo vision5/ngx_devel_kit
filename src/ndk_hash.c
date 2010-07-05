@@ -3,7 +3,7 @@
 // openssl hashes
 
 #define     NDK_OPENSSL_HASH(type,ctxt_type,upper)          \
-    u_char              md [type ## _DIGEST_LENGTH];        \
+    u_char              md [ctxt_type ## _DIGEST_LENGTH];        \
     ngx_uint_t          i;                                  \
     ctxt_type ##_CTX    c;                                  \
                                                             \
@@ -11,7 +11,7 @@
     type ## _Update (&c, data, len);                        \
     type ## _Final (md, &c);                                \
                                                             \
-    for (i=0; i<type ## _DIGEST_LENGTH; i++) {              \
+    for (i=0; i<ctxt_type ## _DIGEST_LENGTH; i++) {              \
         p += sprintf (p, (upper ? "%02X" : "%02x"), md[i]); \
     }
 

@@ -7,9 +7,6 @@
 #include <ngx_md5.h>
 #include <ngx_sha1.h>
 
-#ifndef SHA1_DIGEST_LENGTH
-#define SHA1_DIGEST_LENGTH SHA_DIGEST_LENGTH
-#endif
 
 #define NDK_MURMUR2   // NOTE : for now, always include
 
