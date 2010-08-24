@@ -1,5 +1,16 @@
 #! /bin/bash
 
+if [ $# -eq 2 ];
+then
+  if [ `expr $2 : /` -eq 1 ];
+  then
+    output_dir=$2
+  else
+    output_dir=$1/$2
+  fi
+else
+  output_dir=../src/auto
+fi
 
 list_file=data/action_list
 types_file=data/action_types
@@ -19,7 +30,6 @@ copyright=text/copyright
 
 actions_dir=actions
 srcs_dir=src
-output_dir=../src/auto
 include_prefix=
 file_prefix=ndk_
 auto_file_name=config
