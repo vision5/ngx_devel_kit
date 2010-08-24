@@ -147,7 +147,7 @@ function add_action_macros {
 
             [ "x`echo $type_line`" = 'x' ] && continue  
 
-            ext=`echo $type_line | grep -Eo '^[a-zA-Z0-9_]+'`
+            ext=`echo $type_line | grep -E '^[a-zA-Z0-9_]+' | cut -d " " -f1`
             params=`echo $type_line | sed -r 's/^[a-zA-Z0-9_]+[ ]*\((.*)\).*/\1/;ta;d;:a'`
             act=`echo $type_line | sed -r 's/^[a-zA-Z0-9_]+[ ]*(\(.*\))?(.*)/\2/'`
 
@@ -533,7 +533,7 @@ function generate_commands {
 
         [ "x$cmds" = "x" ] && continue
 
-        mod=`echo "$line" | grep -Eo '^[a-zA-Z0-9_]+'`
+        mod=`echo "$line" | grep -E '^[a-zA-Z0-9_]+' | cut -d " " -f1`
         up=`strtoupper $mod`
         def="NDK_$up"
         defcmd="NDK_${up}_CMDS"
