@@ -66,7 +66,7 @@ ndk_murmur2_hash (char *p, char *data, size_t len)
 
     hash = MurmurHash2 (data, len, 47);
 
-    sprintf (p, "%08X", hash);
+    (void) ngx_sprintf (p, "%08X%Z", hash);
 }
 
 void
@@ -76,7 +76,7 @@ ndk_murmur2_lower_hash (char *p, char *data, size_t len)
 
     hash = MurmurHash2 (data, len, 47);
 
-    sprintf (p, "%08x", hash);
+    (void) ngx_sprintf (p, "%08x%Z", hash);
 }
 
 #endif
