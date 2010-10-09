@@ -1,2 +1,4 @@
 complex_path    complex_value   path
+conf_file       string
 core            log
+set_var         expose_rewrite_functions

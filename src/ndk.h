@@ -13,8 +13,8 @@
 #include    <ngx_http.h>
 
 
-#define     ndk_version     2003
-#define     NDK_VERSION     "0.2.3"
+#define     ndk_version     2010
+#define     NDK_VERSION     "0.2.10"
 
 
 #if !(NDK)
@@ -22,7 +22,6 @@
 the source (add --with-module=/path/to/devel/kit/src to configure command)
 #endif
 
-
-#include    <ndk_config.h>
+#include    <ndk_includes.h>
 
 #endif

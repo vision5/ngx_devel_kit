@@ -117,7 +117,7 @@ ndk_conf_set_num64_slot (ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
     ngx_conf_post_t  *post;
 
 
-    np = (ngx_int_t *) (p + cmd->offset);
+    np = (int64_t *) (p + cmd->offset);
 
     if (*np != NGX_CONF_UNSET) {
         return "is duplicate";

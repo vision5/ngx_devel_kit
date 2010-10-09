@@ -33,6 +33,7 @@ srcs_dir=src
 include_prefix=
 file_prefix=ndk_
 auto_file_name=config
+auto_includes_name=includes
 
 conf_merge_filename=conf_merge.h
 conf_cmd_basic_filename=conf_cmd_basic.h
@@ -564,6 +565,8 @@ function generate_all_h_files {
 
     generate_include_all_includes $out
     generate_dependent_includes $out
+
+    out=$output_dir/${file_prefix}$auto_includes_name.h
 
     generate_optional_h_includes $out
     generate_non_optional_h_includes $out
