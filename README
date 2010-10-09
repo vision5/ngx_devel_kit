@@ -1,11 +1,10 @@
-Name
 
-    ngx-devel-kit (NDK)
-
+    Nginx Development Kit (NDK)
+    ===========================
 
 Version
 
-    0.2.5 (pre-release)
+    0.2.9
 
 
 Synopsis
@@ -27,13 +26,19 @@ Synopsis
     will be the 'usage for users' section below.
 
 
+Status
+
+    The NDK is now considered to be stable. It is already being used in quite a few third
+    party modules.
+
+
 Features
 
     - additional conf_set functions for regexes, complex/script values, paths...
     - macros to simplify tasks like checking for NULL values when doing ngx_array_push
     - patches to the main source code
+    - ngx_auto_lib_core generic external library handler is included (see separate readme)
 
-    [more to be added soon]
 
 
 Design
@@ -86,32 +91,38 @@ Usage for developers
 
     2 - add the following line in the config file for your module :
 
+        have=NDK_[module_name]  . auto/have
+
+        for each NDK module that you wish to use (you need to include auto/have multiple
+        times if you wish to use multiple NDK modules.
+
+
+    Note : the old method of setting
+
         CFLAGS="$CFLAGS -DNDK_[module_name]"
 
-        where [module_name] is the NDK module you wish to use.  If you need to include
-        multiple NDK modules, just make multiple macro definitions.
+        is now deprecated. It will still work, but results in unnecessary lines being
+        displayed when compiling Nginx.
+
 
     Warning : using NDK_ALL
 
-        You can also use -DNDK_ALL to include all the NDK modules.  This is primarily as
+        You can also set NDK_ALL to include all the NDK modules.  This is primarily as
         a convenience in the early stages of development of another module. However,
 
         DO NOT LEAVE 'NDK_ALL' IN YOUR CONFIG FILE WHEN PUBLISHING
 
         Although the NDK is fairly small now, it could in time become a large repository
-        of code that would, if using NDK_ALL, result in extra code being compiled than
-        is necessary.
-
-Notes
-
-    The kit is still considered experimental, and there may be a few bugs in the code.
+        of code that would, if using NDK_ALL, result in considerably more code being compiled
+        than is necessary.
 
 
 Todo
 
     - documentation for modules that don't already have it
     - additional phase-handler functions
-    - generically testing for needing to add a handler 
+    - generically testing for needing to add a handler
+    - remove dependency of set_var on OpenSSL being compiled in
 
 
 License

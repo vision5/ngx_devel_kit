@@ -1,0 +1,24 @@
+diff -p -r -U 8 a/src/http/ngx_http_core_module.c b/src/http/ngx_http_core_module.c
+--- a/src/http/ngx_http_core_module.c	2010-09-02 15:02:57.000000000 +0100
++++ b/src/http/ngx_http_core_module.c	2010-09-18 22:18:01.000000000 +0100
+@@ -905,16 +905,20 @@ ngx_http_core_rewrite_phase(ngx_http_req
+ 
+     rc = ph->handler(r);
+ 
+     if (rc == NGX_DECLINED) {
+         r->phase_handler++;
+         return NGX_AGAIN;
+     }
+ 
++    if (rc == NGX_AGAIN || rc == NGX_DONE) {
++        return NGX_OK;
++    }
++
+     /* rc == NGX_OK || rc == NGX_ERROR || rc == NGX_HTTP_...  */
+ 
+     ngx_http_finalize_request(r, rc);
+ 
+     return NGX_OK;
+ }
+ 
+ 
