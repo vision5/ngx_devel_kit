@@ -15,9 +15,9 @@ ADVANTAGES OF USING THIS MODULE
 
 - simple interface - you don't have to worry about lots of http script compiling
 - it plugs into the rewrite module, so setting (and getting) vars will happen
-    in the order you expect based on how they appear in the configuration file
+  in the order you expect based on how they appear in the configuration file
 - you do not have to worry about overriding the v->get_handler (useful if
-    a variable of a specific name could be set in multiple different ways)
+  a variable of a specific name could be set in multiple different ways)
 
 
 WHEN TO USE THIS AND WHEN TO USE v->get_handler = my_func
