@@ -146,8 +146,8 @@ ndk_conf_set_str_array_multi_slot (ngx_conf_t *cf, ngx_command_t *cmd, void *con
     ngx_str_t         *value, *s;
     ngx_array_t      **a;
     ngx_conf_post_t   *post;
-    ngx_int_t          i;
-
+    ngx_uint_t         i;
+    
     a = (ngx_array_t **) (p + cmd->offset);
 
     if (*a == NGX_CONF_UNSET_PTR) {
@@ -157,7 +157,9 @@ ndk_conf_set_str_array_multi_slot (ngx_conf_t *cf, ngx_command_t *cmd, void *con
         }
     }
 
-    for (i=1; i<cf->args->nelts; i++) {
+    s = NULL;
+
+    for (i=cf->args->nelts-1; i; i--) {
 
         s = ngx_array_push(*a);
         if (s == NULL) {

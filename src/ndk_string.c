@@ -28,13 +28,14 @@ ndk_atoi64 (u_char *line, size_t n)
 ngx_int_t
 ndk_strcntc (ngx_str_t *s, char c)
 {
-    ngx_int_t   i, n;
+    ngx_int_t   n;
+    size_t      i;
     u_char     *p;
 
-    n = s->len;
+    i = s->len;
     p = s->data;
 
-    for (i=0; i<s->len; i++, p++) {
+    for (n=0; i; i--, p++) {
 
         if (*p == (u_char) c)
             n++;
