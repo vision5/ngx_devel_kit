@@ -13,8 +13,8 @@
 #include    <ngx_http.h>
 
 
-#define     ndk_version     2010
-#define     NDK_VERSION     "0.2.10"
+#define     ndk_version     2011
+#define     NDK_VERSION     "0.2.11"
 
 
 #if !(NDK)

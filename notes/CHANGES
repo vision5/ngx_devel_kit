@@ -10,3 +10,5 @@ Changelog
 0.2.2       feature : regex conf functions
 0.2.3       feature : version number
 0.2.4       change  : the auto/build script is now executed automatically on compilation
+# TODO
+0.2.11      bugfix  : hash functions did not display properly

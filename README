@@ -2,11 +2,6 @@
     Nginx Development Kit (NDK)
     ===========================
 
-Version
-
-    0.2.10
-
-
 Synopsis
 
     The NDK is an Nginx module that is designed to extend the core functionality of the 
