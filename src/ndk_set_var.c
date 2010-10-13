@@ -220,7 +220,7 @@ ndk_set_var_multi_value_data_code (ngx_http_script_engine_t *e)
 static void
 ndk_set_var_hash_code (ngx_http_script_engine_t *e)
 {
-    char                        *p;
+    u_char                      *p;
     ngx_http_variable_value_t   *v;
     ndk_set_var_size_code_t     *svs;
     ndk_set_var_hash_pt          func;
@@ -229,7 +229,7 @@ ndk_set_var_hash_code (ngx_http_script_engine_t *e)
 
     e->ip += sizeof (ndk_set_var_size_code_t);
 
-    p = ngx_pnalloc (e->request->pool, svs->size);
+    p = ngx_palloc (e->request->pool, svs->size);
     if (p == NULL) {
         e->ip = ngx_http_script_exit;
         e->status = NGX_HTTP_INTERNAL_SERVER_ERROR;
@@ -239,14 +239,14 @@ ndk_set_var_hash_code (ngx_http_script_engine_t *e)
     v = e->sp - 1;
 
     func = svs->func;
-
+   
     func (p, (char *) v->data, v->len);
 
     v->data = (u_char *) p;
     v->len = svs->size;
 
     ngx_log_debug1(NGX_LOG_DEBUG_HTTP, e->request->connection->log, 0,
-                   "http script value (post filter): \"%v\"", v);
+                   "http script hashed value: \"%v\"", v);
 }
 
 

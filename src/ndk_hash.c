@@ -1,52 +1,51 @@
-#include "ndk_hash.h"
+
+#include <ndk_hash.h>
+
+
 
 // openssl hashes
 
-#define     NDK_OPENSSL_HASH(type,ctxt_type,upper)          \
-    u_char              md [ctxt_type ## _DIGEST_LENGTH];        \
-    ngx_uint_t          i;                                  \
-    ctxt_type ##_CTX    c;                                  \
-                                                            \
-    type ## _Init (&c);                                     \
-    type ## _Update (&c, data, len);                        \
-    type ## _Final (md, &c);                                \
-                                                            \
-    ngx_hex_dump((u_char *) p, (u_char *) md, ctxt_type ## _DIGEST_LENGTH);        \
-    if (upper) { \
-        for (i = 0; i < ctxt_type ## _DIGEST_LENGTH; i++) { \
-            *p = ngx_toupper(md[i]); \
-        } \
+#define     NDK_OPENSSL_HASH(type,ctxt_type,upper)                  \
+    u_char              md [ctxt_type ## _DIGEST_LENGTH];           \
+    ctxt_type ##_CTX    c;                                          \
+                                                                    \
+    type ## _Init (&c);                                             \
+    type ## _Update (&c, data, len);                                \
+    type ## _Final (md, &c);                                        \
+                                                                    \
+    ndk_hex_dump (p, (u_char *) md, ctxt_type ## _DIGEST_LENGTH);   \
+    if (upper) {                                                    \
+        ndk_strtoupper (p, (ctxt_type ## _DIGEST_LENGTH) *2);       \
     }
 
-// TODO : check to see if can do consistent printing using "%08X" or in single go
 
 #ifdef NDK_MD5
 
 void
-ndk_md5_hash (char *p, char *data, size_t len)
+ndk_md5_hash (u_char *p, char *data, size_t len)
 {
-    NDK_OPENSSL_HASH (MD5, MD5, 1);
+    NDK_OPENSSL_HASH (MD5, MD5, 0);
 }
 
 void
-ndk_md5_lower_hash (char *p, char *data, size_t len)
+ndk_md5_hash_upper (u_char *p, char *data, size_t len)
 {
-    NDK_OPENSSL_HASH (MD5, MD5, 0);
+    NDK_OPENSSL_HASH (MD5, MD5, 1);
 }
 
 #endif
 #ifdef NDK_SHA1
 
 void
-ndk_sha1_hash (char *p, char *data, size_t len)
+ndk_sha1_hash (u_char *p, char *data, size_t len)
 {
-    NDK_OPENSSL_HASH (SHA1, SHA, 1);
+    NDK_OPENSSL_HASH (SHA1, SHA, 0);
 }
 
 void
-ndk_sha1_lower_hash (char *p, char *data, size_t len)
+ndk_sha1_hash_upper (u_char *p, char *data, size_t len)
 {
-    NDK_OPENSSL_HASH (SHA1, SHA, 0);
+    NDK_OPENSSL_HASH (SHA1, SHA, 1);
 }
 
 #endif
@@ -60,23 +59,24 @@ ndk_sha1_lower_hash (char *p, char *data, size_t len)
 #include    "hash/murmurhash2.c"
 
 void
-ndk_murmur2_hash (char *p, char *data, size_t len)
+ndk_murmur2_hash (u_char *p, char *data, size_t len)
 {
     uint32_t    hash;
 
     hash = MurmurHash2 (data, len, 47);
 
-    (void) ngx_sprintf ((u_char *) p, "%08X%Z", hash);
+    ndk_hex_dump (p, (u_char*) &hash, 4);
 }
 
 void
-ndk_murmur2_lower_hash (char *p, char *data, size_t len)
+ndk_murmur2_hash_upper (u_char *p, char *data, size_t len)
 {
     uint32_t    hash;
 
     hash = MurmurHash2 (data, len, 47);
 
-    (void) ngx_sprintf ((u_char *) p, "%08x%Z", hash);
+    ndk_hex_dump (p, (u_char*) &hash, 4);
+    ndk_strtoupper (p, 8);
 }
 
 #endif

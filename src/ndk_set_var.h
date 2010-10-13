@@ -9,7 +9,7 @@ typedef ngx_int_t   (*ndk_set_var_pt)              (ngx_http_request_t *r, ngx_s
 typedef ngx_int_t   (*ndk_set_var_data_pt)         (ngx_http_request_t *r, ngx_str_t *val, void *data);
 typedef ngx_int_t   (*ndk_set_var_value_pt)        (ngx_http_request_t *r, ngx_str_t *val, ngx_http_variable_value_t *v);
 typedef ngx_int_t   (*ndk_set_var_value_data_pt)   (ngx_http_request_t *r, ngx_str_t *val, ngx_http_variable_value_t *v, void *data);
-typedef void        (*ndk_set_var_hash_pt)         (char *p, char *data, size_t len);
+typedef void        (*ndk_set_var_hash_pt)         (u_char *p, char *data, size_t len);
 
 
 typedef struct {
