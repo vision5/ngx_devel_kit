@@ -285,6 +285,8 @@ ndk_set_var_name (ndk_set_var_info_t *info, ngx_str_t *varname)
     }
 
     if (v->get_handler == NULL
+        && ngx_strncasecmp(name.data, (u_char *) "arg_", 4) != 0
+        && ngx_strncasecmp(name.data, (u_char *) "cookie_", 7) != 0
         && ngx_strncasecmp(name.data, (u_char *) "http_", 5) != 0
         && ngx_strncasecmp(name.data, (u_char *) "sent_http_", 10) != 0
         && ngx_strncasecmp(name.data, (u_char *) "upstream_http_", 14) != 0)
