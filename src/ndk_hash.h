@@ -8,12 +8,12 @@
 #define NDK_MD5
 #endif
 
-#ifndef NDK_SHA1
-#define NDK_SHA1
-#endif
-
 #ifndef NDK_MURMUR2
 #define NDK_MURMUR2
+#endif
+
+#ifndef NDK_SHA1
+#define NDK_SHA1
 #endif
 
 #endif

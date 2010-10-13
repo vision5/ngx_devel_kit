@@ -56,7 +56,7 @@ ndk_set_var_code_finalize (ngx_http_script_engine_t *e, ngx_int_t rc,
         v->no_cacheable = 0;
         v->not_found = 0;
 
-        ngx_log_debug1 (NGX_LOG_DEBUG_HTTP, e->request->connection->log, 0,
+        ngx_log_debug1 (NGX_LOG_DEBUG_HTTP, e->log, 0,
                         "http script value (post filter): \"%v\"", v);
         break;
 
@@ -245,7 +245,7 @@ ndk_set_var_hash_code (ngx_http_script_engine_t *e)
     v->data = (u_char *) p;
     v->len = svs->size;
 
-    ngx_log_debug1(NGX_LOG_DEBUG_HTTP, e->request->connection->log, 0,
+    ngx_log_debug1(NGX_LOG_DEBUG_HTTP, e->log, 0,
                    "http script hashed value: \"%v\"", v);
 }
 
