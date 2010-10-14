@@ -35,12 +35,12 @@ $autobuild `pwd` $NGX_OBJS/addon/ndk || exit 1
 
 echo "applying Nginx Development Kit source patches ..."
 
-#patch -Np1 < $ngx_addon_dir/patches/auto_config
-#patch -Np1 < $ngx_addon_dir/patches/expose_rewrite_functions
+patch -Np1 < $ngx_addon_dir/patches/auto_config
+patch -Np1 < $ngx_addon_dir/patches/expose_rewrite_functions
 
-#if [ $NGINX_VERSION -ge 8042 ]; then
-#    patch -Np1 < $ngx_addon_dir/patches/rewrite_phase_handler
-#fi
+if [ $NGINX_VERSION -ge 8042 ]; then
+    patch -Np1 < $ngx_addon_dir/patches/rewrite_phase_handler
+fi
 
 #####################
 ## CONFIG SETTINGS ##
