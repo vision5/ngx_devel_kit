@@ -2,4 +2,4 @@ complex_path    complex_value   path
 conf_file       string
 core            log
 hash            string
-set_var         expose_rewrite_functions
+set_var         rewrite

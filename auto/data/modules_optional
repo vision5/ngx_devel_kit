@@ -6,6 +6,7 @@ hash
 log
 path
 regex
+rewrite
 set_var
 string
 upstream_list   *
