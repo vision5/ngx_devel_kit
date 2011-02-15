@@ -532,7 +532,7 @@ function generate_commands {
 
     echo "// module commands" >> $1
     echo >> $1
-    echo "static ngx_command_t  ngx_http_devel_kit_commands[] = {" >> $1
+    echo "static ngx_command_t  ndk_http_commands[] = {" >> $1
 
     cat $optional_modules_file | sort | while read line; do
 

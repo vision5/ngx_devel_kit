@@ -424,3 +424,13 @@ ndk_dupstr (ngx_pool_t *pool, ngx_str_t *dest, ngx_str_t *src)
 
     return  d;
 }
+
+/*
+ngx_keyval_t *
+ndk_url_args_to_keyval_list (ngx_pool_t *pool, ngx_str_t *str)
+{
+    ngx_keyval_t    *kv;
+    ngx_st
+    
+}
+*/

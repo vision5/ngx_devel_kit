@@ -14,13 +14,14 @@
 
 #else
 
-extern  ngx_array_t     *ndk_upstreams;
-
 typedef struct {
     ngx_str_t       **elts;
     ngx_uint_t        nelts;
     ngx_str_t         name;
 } ndk_upstream_list_t;
 
-#endif
 
+ndk_upstream_list_t *
+ndk_get_upstream_list (ndk_http_main_conf_t *mcf, u_char *data, size_t len);
+
+#endif

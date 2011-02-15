@@ -3,8 +3,6 @@
 // TODO : generalize this into a generic list module, with weight
 
 
-ngx_array_t     *ndk_upstreams;
-
 typedef struct {
     ngx_uint_t      weight;
     ngx_str_t       s;
@@ -68,8 +66,11 @@ ndk_upstream_list (ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
     ndk_upstream_list_t         *ul, *ule;
     ndk_upstream_list_parse_t    ulp;
 
+    ndk_http_main_conf_t        *mcf;
 
-    ula = ndk_upstreams;
+    mcf = ngx_http_conf_get_module_main_conf (cf, ndk_http_module);
+    
+    ula = mcf->upstreams;
 
     // create array of upstream lists it doesn't already exist
 
@@ -79,7 +80,7 @@ ndk_upstream_list (ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
         if (ula == NULL)
             return  NGX_CONF_ERROR;
 
-        ndk_upstreams = ula;
+        mcf->upstreams = ula;
     }
 
 
@@ -177,3 +178,27 @@ ndk_upstream_list (ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
 
     return  NGX_CONF_OK;
 } 
+
+
+ndk_upstream_list_t *
+ndk_get_upstream_list (ndk_http_main_conf_t *mcf, u_char *data, size_t len)
+{
+    ndk_upstream_list_t         *ul, *ule;  
+    ngx_array_t                 *ua = mcf->upstreams;
+    
+    if (ua == NULL) {
+        return NULL;
+    }
+
+    ul = ua->elts;
+    ule = ul + ua->nelts;
+
+    for (; ul < ule; ul++) {
+        if (ul->name.len == len && ngx_strncasecmp(ul->name.data, data, len) == 0)
+        {
+            return ul;
+        }
+    }
+
+    return NULL;
+}

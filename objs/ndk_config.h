@@ -39,6 +39,9 @@
 #ifndef NDK_PATH
 #define NDK_PATH 1
 #endif
+#ifndef NDK_PROCESS
+#define NDK_PROCESS 1
+#endif
 #ifndef NDK_REGEX
 #define NDK_REGEX 1
 #endif
@@ -84,6 +87,11 @@
 #ifdef  NDK_SET_VAR
 #ifndef NDK_REWRITE
 #define NDK_REWRITE 1
+#endif
+#endif
+#ifdef  NDK_UPSTREAM_LIST
+#ifndef NDK_HTTP_CREATE_MAIN_CONF
+#define NDK_HTTP_CREATE_MAIN_CONF 1
 #endif
 #endif
 

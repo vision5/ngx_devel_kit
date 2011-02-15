@@ -37,6 +37,9 @@
 #if (NDK_PATH)
 #include  <ndk_path.c>
 #endif
+#if (NDK_PROCESS)
+#include  <ndk_process.c>
+#endif
 #if (NDK_REGEX)
 #include  <ndk_regex.c>
 #endif
@@ -59,7 +62,7 @@
 
 // module commands
 
-static ngx_command_t  ngx_http_devel_kit_commands[] = {
+static ngx_command_t  ndk_http_commands[] = {
 #if (NDK_UPSTREAM_LIST)
 #define NDK_UPSTREAM_LIST_CMDS 1
 #include  <ndk_upstream_list.h>

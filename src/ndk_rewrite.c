@@ -5,11 +5,11 @@
 // be provided later to un-define them as being static
 
 
-uintptr_t ngx_http_script_exit_code = (uintptr_t) NULL;
+uintptr_t ndk_http_script_exit_code = (uintptr_t) NULL;
 
 
 char *
-ngx_http_rewrite_value (ngx_conf_t *cf, ngx_http_rewrite_loc_conf_t *lcf,
+ndk_http_rewrite_value (ngx_conf_t *cf, ndk_http_rewrite_loc_conf_t *lcf,
     ngx_str_t *value)
 {
     ngx_int_t                              n;
@@ -68,12 +68,12 @@ ngx_http_rewrite_value (ngx_conf_t *cf, ngx_http_rewrite_loc_conf_t *lcf,
 
 
 ngx_int_t
-ngx_http_rewrite_var (ngx_http_request_t *r, ngx_http_variable_value_t *v,
+ndk_http_rewrite_var (ngx_http_request_t *r, ngx_http_variable_value_t *v,
     uintptr_t data)
 {
     ngx_http_variable_t          *var;
     ngx_http_core_main_conf_t    *cmcf;
-    ngx_http_rewrite_loc_conf_t  *rlcf;
+    ndk_http_rewrite_loc_conf_t  *rlcf;
 
     rlcf = ngx_http_get_module_loc_conf(r, ngx_http_rewrite_module);
 
@@ -97,7 +97,7 @@ ngx_http_rewrite_var (ngx_http_request_t *r, ngx_http_variable_value_t *v,
 
     *v = ngx_http_variable_null_value;
 
-    return NGX_OK;
+    return  NGX_OK;
 }
 
 

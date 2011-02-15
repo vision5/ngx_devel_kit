@@ -40,6 +40,8 @@
 #define     ndk_palloc_rcok(p,pl,sz)            ndk_palloc_ac              (p,pl,sz,return NGX_CONF_OK)
 #define     ndk_palloc_re(p,pl,sz)              ndk_palloc_ac              (p,pl,sz,return NGX_ERROR)
 #define     ndk_palloc_rn(p,pl,sz)              ndk_palloc_ac              (p,pl,sz,return NULL)
+#define     ndk_palloc_rse(p,pl,sz)             ndk_palloc_ac              (p,pl,sz,{ngx_script_error (e); return;})
+#define     ndk_palloc_sce(p,pl,sz)             ndk_palloc_ac              (p,pl,sz,{ngx_script_configure_error (c); return;})
 #define     ndk_palloc_g(p,pl,sz,_lb)           ndk_palloc_ac              (p,pl,sz,goto _lb)
 #define     ndk_palloc_ge(p,pl,sz)              ndk_palloc_ac              (p,pl,sz,goto error)
 
@@ -51,6 +53,8 @@
 #define     ndk_pallocp_rcok(p,pl)              ndk_pallocp_ac             (p,pl,return NGX_CONF_OK)
 #define     ndk_pallocp_re(p,pl)                ndk_pallocp_ac             (p,pl,return NGX_ERROR)
 #define     ndk_pallocp_rn(p,pl)                ndk_pallocp_ac             (p,pl,return NULL)
+#define     ndk_pallocp_rse(p,pl)               ndk_pallocp_ac             (p,pl,{ngx_script_error (e); return;})
+#define     ndk_pallocp_sce(p,pl)               ndk_pallocp_ac             (p,pl,{ngx_script_configure_error (c); return;})
 #define     ndk_pallocp_g(p,pl,_lb)             ndk_pallocp_ac             (p,pl,goto _lb)
 #define     ndk_pallocp_ge(p,pl)                ndk_pallocp_ac             (p,pl,goto error)
 
@@ -62,6 +66,8 @@
 #define     ndk_pallocpn_rcok(p,pl,n)           ndk_pallocpn_ac            (p,pl,n,return NGX_CONF_OK)
 #define     ndk_pallocpn_re(p,pl,n)             ndk_pallocpn_ac            (p,pl,n,return NGX_ERROR)
 #define     ndk_pallocpn_rn(p,pl,n)             ndk_pallocpn_ac            (p,pl,n,return NULL)
+#define     ndk_pallocpn_rse(p,pl,n)            ndk_pallocpn_ac            (p,pl,n,{ngx_script_error (e); return;})
+#define     ndk_pallocpn_sce(p,pl,n)            ndk_pallocpn_ac            (p,pl,n,{ngx_script_configure_error (c); return;})
 #define     ndk_pallocpn_g(p,pl,n,_lb)          ndk_pallocpn_ac            (p,pl,n,goto _lb)
 #define     ndk_pallocpn_ge(p,pl,n)             ndk_pallocpn_ac            (p,pl,n,goto error)
 
@@ -73,6 +79,8 @@
 #define     ndk_pcalloc_rcok(p,pl,sz)           ndk_pcalloc_ac             (p,pl,sz,return NGX_CONF_OK)
 #define     ndk_pcalloc_re(p,pl,sz)             ndk_pcalloc_ac             (p,pl,sz,return NGX_ERROR)
 #define     ndk_pcalloc_rn(p,pl,sz)             ndk_pcalloc_ac             (p,pl,sz,return NULL)
+#define     ndk_pcalloc_rse(p,pl,sz)            ndk_pcalloc_ac             (p,pl,sz,{ngx_script_error (e); return;})
+#define     ndk_pcalloc_sce(p,pl,sz)            ndk_pcalloc_ac             (p,pl,sz,{ngx_script_configure_error (c); return;})
 #define     ndk_pcalloc_g(p,pl,sz,_lb)          ndk_pcalloc_ac             (p,pl,sz,goto _lb)
 #define     ndk_pcalloc_ge(p,pl,sz)             ndk_pcalloc_ac             (p,pl,sz,goto error)
 
@@ -84,6 +92,8 @@
 #define     ndk_pcallocp_rcok(p,pl)             ndk_pcallocp_ac            (p,pl,return NGX_CONF_OK)
 #define     ndk_pcallocp_re(p,pl)               ndk_pcallocp_ac            (p,pl,return NGX_ERROR)
 #define     ndk_pcallocp_rn(p,pl)               ndk_pcallocp_ac            (p,pl,return NULL)
+#define     ndk_pcallocp_rse(p,pl)              ndk_pcallocp_ac            (p,pl,{ngx_script_error (e); return;})
+#define     ndk_pcallocp_sce(p,pl)              ndk_pcallocp_ac            (p,pl,{ngx_script_configure_error (c); return;})
 #define     ndk_pcallocp_g(p,pl,_lb)            ndk_pcallocp_ac            (p,pl,goto _lb)
 #define     ndk_pcallocp_ge(p,pl)               ndk_pcallocp_ac            (p,pl,goto error)
 
@@ -95,6 +105,8 @@
 #define     ndk_pcallocpn_rcok(p,pl,n)          ndk_pcallocpn_ac           (p,pl,n,return NGX_CONF_OK)
 #define     ndk_pcallocpn_re(p,pl,n)            ndk_pcallocpn_ac           (p,pl,n,return NGX_ERROR)
 #define     ndk_pcallocpn_rn(p,pl,n)            ndk_pcallocpn_ac           (p,pl,n,return NULL)
+#define     ndk_pcallocpn_rse(p,pl,n)           ndk_pcallocpn_ac           (p,pl,n,{ngx_script_error (e); return;})
+#define     ndk_pcallocpn_sce(p,pl,n)           ndk_pcallocpn_ac           (p,pl,n,{ngx_script_configure_error (c); return;})
 #define     ndk_pcallocpn_g(p,pl,n,_lb)         ndk_pcallocpn_ac           (p,pl,n,goto _lb)
 #define     ndk_pcallocpn_ge(p,pl,n)            ndk_pcallocpn_ac           (p,pl,n,goto error)
 

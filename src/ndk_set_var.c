@@ -33,7 +33,7 @@ typedef struct {
     ngx_str_t                       *value;
     ngx_http_variable_t             *v;
     ngx_conf_t                      *cf;
-    ngx_http_rewrite_loc_conf_t     *rlcf;
+    ndk_http_rewrite_loc_conf_t     *rlcf;
 } ndk_set_var_info_t;
 
 
@@ -69,7 +69,7 @@ ndk_set_var_code_finalize (ngx_http_script_engine_t *e, ngx_int_t rc,
 
     case    NGX_ERROR :
 
-        e->ip = ngx_http_script_exit;
+        e->ip = ndk_http_script_exit;
         e->status = NGX_HTTP_INTERNAL_SERVER_ERROR;
         break;
     }
@@ -231,7 +231,7 @@ ndk_set_var_hash_code (ngx_http_script_engine_t *e)
 
     p = ngx_palloc (e->request->pool, svs->size);
     if (p == NULL) {
-        e->ip = ngx_http_script_exit;
+        e->ip = ndk_http_script_exit;
         e->status = NGX_HTTP_INTERNAL_SERVER_ERROR;
         return;
     }
@@ -257,7 +257,7 @@ ndk_set_var_name (ndk_set_var_info_t *info, ngx_str_t *varname)
     ngx_int_t                        index;
     ngx_http_variable_t             *v;
     ngx_conf_t                      *cf;
-    ngx_http_rewrite_loc_conf_t     *rlcf;
+    ndk_http_rewrite_loc_conf_t     *rlcf;
     ngx_str_t                        name;
 
     name = *varname;
@@ -291,7 +291,7 @@ ndk_set_var_name (ndk_set_var_info_t *info, ngx_str_t *varname)
         && ngx_strncasecmp(name.data, (u_char *) "sent_http_", 10) != 0
         && ngx_strncasecmp(name.data, (u_char *) "upstream_http_", 14) != 0)
     {
-        v->get_handler = ngx_http_rewrite_var;
+        v->get_handler = ndk_http_rewrite_var;
         v->data = index;
     }
 
@@ -305,7 +305,7 @@ ndk_set_var_name (ndk_set_var_info_t *info, ngx_str_t *varname)
 
 
 static void
-ndk_set_variable_value_space (ngx_http_rewrite_loc_conf_t *rlcf, ngx_uint_t count)
+ndk_set_variable_value_space (ndk_http_rewrite_loc_conf_t *rlcf, ngx_uint_t count)
 {
     // if the number of variable values that will be used is greater than 10,
     // make sure there is enough space allocated on the rewrite value stack
@@ -325,7 +325,7 @@ ndk_set_variable_value_space (ngx_http_rewrite_loc_conf_t *rlcf, ngx_uint_t coun
 
 
 static char *
-ndk_set_var_filter (ngx_conf_t *cf, ngx_http_rewrite_loc_conf_t *rlcf,
+ndk_set_var_filter (ngx_conf_t *cf, ndk_http_rewrite_loc_conf_t *rlcf,
     ndk_set_var_t *filter)
 {
     ndk_set_var_code_t             *sv;
@@ -457,7 +457,7 @@ ndk_set_var_filter_value (ndk_set_var_info_t *info, ndk_set_var_t *filter)
 {
     ngx_conf_t                          *cf;
     ngx_http_variable_t                 *v;
-    ngx_http_rewrite_loc_conf_t         *rlcf;
+    ndk_http_rewrite_loc_conf_t         *rlcf;
     ngx_http_script_var_code_t          *vcode;
     ngx_http_script_var_handler_code_t  *vhcode;
 
@@ -526,7 +526,7 @@ ndk_set_var_value_core (ngx_conf_t *cf, ngx_str_t *name, ngx_str_t *value, ndk_s
     if (p != NGX_CONF_OK)
         return  p;
 
-    p = ngx_http_rewrite_value (cf, info.rlcf, value);
+    p = ndk_http_rewrite_value (cf, info.rlcf, value);
     if (p != NGX_CONF_OK) {
         return  p;
     }
@@ -550,7 +550,7 @@ ndk_set_var_multi_value_core (ngx_conf_t *cf, ngx_str_t *name, ngx_str_t *value,
 
     for (i=filter->size; i; i--, value++) {
 
-        p = ngx_http_rewrite_value (cf, info.rlcf, value);
+        p = ndk_http_rewrite_value (cf, info.rlcf, value);
         if (p != NGX_CONF_OK) {
             return  p;
         }

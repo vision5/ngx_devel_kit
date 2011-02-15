@@ -6,6 +6,7 @@ encoding
 hash
 http
 path
+process
 regex
 rewrite
 set_var

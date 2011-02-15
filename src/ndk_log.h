@@ -23,15 +23,6 @@
 #define ndk_log_notice(log,...)                     ngx_log_error (NGX_LOG_NOTICE, log, 0, __VA_ARGS__)
 #define ndk_log_info(log,...)                       ngx_log_error (NGX_LOG_INFO, log, 0, __VA_ARGS__)
 
-#define ndk_log_debug_core(log,...)                 ngx_log_debug (NGX_LOG_DEBUG_CORE, log, 0, __VA_ARGS__)
-#define ndk_log_debug_alloc(log,...)                ngx_log_debug (NGX_LOG_DEBUG_ALLOC, log, 0, __VA_ARGS__)
-#define ndk_log_debug_mutex(log,...)                ngx_log_debug (NGX_LOG_DEBUG_MUTEX, log, 0, __VA_ARGS__)
-#define ndk_log_debug_event(log,...)                ngx_log_debug (NGX_LOG_DEBUG_EVENT, log, 0, __VA_ARGS__)
-#define ndk_log_debug_http(log,...)                 ngx_log_debug (NGX_LOG_DEBUG_HTTP, log, 0, __VA_ARGS__)
-#define ndk_log_debug_mail(log,...)                 ngx_log_debug (NGX_LOG_DEBUG_MAIL, log, 0, __VA_ARGS__)
-#define ndk_log_debug_mysql(log,...)                ngx_log_debug (NGX_LOG_DEBUG_MYSQL, log, 0, __VA_ARGS__)
-#define ndk_log_debug_script(log,...)               ngx_log_debug (NGX_LOG_DEBUG_SCRIPT, log, 0, __VA_ARGS__)
-
 #define ndk_conf_log_stderr(cf,...)                 ngx_conf_log_error (NGX_LOG_STDERR, cf, 0, __VA_ARGS__)
 #define ndk_conf_log_emerg(cf,...)                  ngx_conf_log_error (NGX_LOG_EMERG, cf, 0, __VA_ARGS__)
 #define ndk_conf_log_alert(cf,...)                  ngx_conf_log_error (NGX_LOG_ALERT, cf, 0, __VA_ARGS__)
@@ -40,15 +31,6 @@
 #define ndk_conf_log_warning(cf,...)                ngx_conf_log_error (NGX_LOG_WARN, cf, 0, __VA_ARGS__)
 #define ndk_conf_log_notice(cf,...)                 ngx_conf_log_error (NGX_LOG_NOTICE, cf, 0, __VA_ARGS__)
 #define ndk_conf_log_info(cf,...)                   ngx_conf_log_error (NGX_LOG_INFO, cf, 0, __VA_ARGS__)
-
-#define ndk_conf_log_debug_core(r,...)              ndk_log_debug_core (ndk_conf_to_log(r), __VA_ARGS__)
-#define ndk_conf_log_debug_alloc(r,...)             ndk_log_debug_alloc (ndk_conf_to_log(r), __VA_ARGS__)
-#define ndk_conf_log_debug_mutex(r,...)             ndk_log_debug_mutex (ndk_conf_to_log(r), __VA_ARGS__)
-#define ndk_conf_log_debug_event(r,...)             ndk_log_debug_event (ndk_conf_to_log(r), __VA_ARGS__)
-#define ndk_conf_log_debug_http(r,...)              ndk_log_debug_http (ndk_conf_to_log(r), __VA_ARGS__)
-#define ndk_conf_log_debug_mail(r,...)              ndk_log_debug_mail (ndk_conf_to_log(r), __VA_ARGS__)
-#define ndk_conf_log_debug_mysql(r,...)             ndk_log_debug_mysql (ndk_conf_to_log(r), __VA_ARGS__)
-#define ndk_conf_log_debug_script(r,...)            ndk_log_debug_script (ndk_conf_to_log(r), __VA_ARGS__)
 
 #define ndk_request_log_stderr(r,...)               ndk_log_stderr (ndk_request_to_log(r), __VA_ARGS__)
 #define ndk_request_log_emerg(r,...)                ndk_log_emerg (ndk_request_to_log(r), __VA_ARGS__)
@@ -59,6 +41,25 @@
 #define ndk_request_log_notice(r,...)               ndk_log_notice (ndk_request_to_log(r), __VA_ARGS__)
 #define ndk_request_log_info(r,...)                 ndk_log_info (ndk_request_to_log(r), __VA_ARGS__)
 
+
+#if (NGX_DEBUG)
+
+#define ndk_log_debug_core(log,...)                 ngx_log_debug (NGX_LOG_DEBUG_CORE, log, 0, __VA_ARGS__)
+#define ndk_log_debug_alloc(log,...)                ngx_log_debug (NGX_LOG_DEBUG_ALLOC, log, 0, __VA_ARGS__)
+#define ndk_log_debug_mutex(log,...)                ngx_log_debug (NGX_LOG_DEBUG_MUTEX, log, 0, __VA_ARGS__)
+#define ndk_log_debug_event(log,...)                ngx_log_debug (NGX_LOG_DEBUG_EVENT, log, 0, __VA_ARGS__)
+#define ndk_log_debug_http(log,...)                 ngx_log_debug (NGX_LOG_DEBUG_HTTP, log, 0, __VA_ARGS__)
+#define ndk_log_debug_mail(log,...)                 ngx_log_debug (NGX_LOG_DEBUG_MAIL, log, 0, __VA_ARGS__)
+#define ndk_log_debug_mysql(log,...)                ngx_log_debug (NGX_LOG_DEBUG_MYSQL, log, 0, __VA_ARGS__)
+
+#define ndk_conf_log_debug_core(r,...)              ndk_log_debug_core (ndk_conf_to_log(r), __VA_ARGS__)
+#define ndk_conf_log_debug_alloc(r,...)             ndk_log_debug_alloc (ndk_conf_to_log(r), __VA_ARGS__)
+#define ndk_conf_log_debug_mutex(r,...)             ndk_log_debug_mutex (ndk_conf_to_log(r), __VA_ARGS__)
+#define ndk_conf_log_debug_event(r,...)             ndk_log_debug_event (ndk_conf_to_log(r), __VA_ARGS__)
+#define ndk_conf_log_debug_http(r,...)              ndk_log_debug_http (ndk_conf_to_log(r), __VA_ARGS__)
+#define ndk_conf_log_debug_mail(r,...)              ndk_log_debug_mail (ndk_conf_to_log(r), __VA_ARGS__)
+#define ndk_conf_log_debug_mysql(r,...)             ndk_log_debug_mysql (ndk_conf_to_log(r), __VA_ARGS__)
+
 #define ndk_request_log_debug_core(r,...)           ndk_log_debug_core (ndk_request_to_log(r), __VA_ARGS__)
 #define ndk_request_log_debug_alloc(r,...)          ndk_log_debug_alloc (ndk_request_to_log(r), __VA_ARGS__)
 #define ndk_request_log_debug_mutex(r,...)          ndk_log_debug_mutex (ndk_request_to_log(r), __VA_ARGS__)
@@ -66,7 +67,35 @@
 #define ndk_request_log_debug_http(r,...)           ndk_log_debug_http (ndk_request_to_log(r), __VA_ARGS__)
 #define ndk_request_log_debug_mail(r,...)           ndk_log_debug_mail (ndk_request_to_log(r), __VA_ARGS__)
 #define ndk_request_log_debug_mysql(r,...)          ndk_log_debug_mysql (ndk_request_to_log(r), __VA_ARGS__)
-#define ndk_request_log_debug_script(r,...)         ndk_log_debug_script (ndk_request_to_log(r), __VA_ARGS__)
+
+#else 
+
+#define ndk_log_debug_core(log,...)
+#define ndk_log_debug_alloc(log,...)
+#define ndk_log_debug_mutex(log,...)
+#define ndk_log_debug_event(log,...)
+#define ndk_log_debug_http(log,...)
+#define ndk_log_debug_mail(log,...)
+#define ndk_log_debug_mysql(log,...)
+
+#define ndk_conf_log_debug_core(r,...)
+#define ndk_conf_log_debug_alloc(r,...)
+#define ndk_conf_log_debug_mutex(r,...)
+#define ndk_conf_log_debug_event(r,...)
+#define ndk_conf_log_debug_http(r,...)
+#define ndk_conf_log_debug_mail(r,...)
+#define ndk_conf_log_debug_mysql(r,...)
+
+#define ndk_request_log_debug_core(r,...)
+#define ndk_request_log_debug_alloc(r,...)
+#define ndk_request_log_debug_mutex(r,...)
+#define ndk_request_log_debug_event(r,...)
+#define ndk_request_log_debug_http(r,...)
+#define ndk_request_log_debug_mail(r,...)
+#define ndk_request_log_debug_mysql(r,...)
+
+#endif
+
 
 /*********************************/
 

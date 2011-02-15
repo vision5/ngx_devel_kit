@@ -24,6 +24,9 @@
 #if (NDK_PATH)
 #include  <ndk_path.h>
 #endif
+#if (NDK_PROCESS)
+#include  <ndk_process.h>
+#endif
 #if (NDK_REGEX)
 #include  <ndk_regex.h>
 #endif

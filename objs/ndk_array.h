@@ -41,6 +41,8 @@
 #define     ndk_array_create_rcok(a,pl,n,sz)    ndk_array_create_ac        (a,pl,n,sz,return NGX_CONF_OK)
 #define     ndk_array_create_re(a,pl,n,sz)      ndk_array_create_ac        (a,pl,n,sz,return NGX_ERROR)
 #define     ndk_array_create_rn(a,pl,n,sz)      ndk_array_create_ac        (a,pl,n,sz,return NULL)
+#define     ndk_array_create_rse(a,pl,n,sz)     ndk_array_create_ac        (a,pl,n,sz,{ngx_script_error (e); return;})
+#define     ndk_array_create_sce(a,pl,n,sz)     ndk_array_create_ac        (a,pl,n,sz,{ngx_script_configure_error (c); return;})
 #define     ndk_array_create_g(a,pl,n,sz,_lb)   ndk_array_create_ac        (a,pl,n,sz,goto _lb)
 #define     ndk_array_create_ge(a,pl,n,sz)      ndk_array_create_ac        (a,pl,n,sz,goto error)
 
@@ -52,6 +54,8 @@
 #define     ndk_array_init_rcok(a,pl,n,sz)      ndk_array_init_ac          (a,pl,n,sz,return NGX_CONF_OK)
 #define     ndk_array_init_re(a,pl,n,sz)        ndk_array_init_ac          (a,pl,n,sz,return NGX_ERROR)
 #define     ndk_array_init_rn(a,pl,n,sz)        ndk_array_init_ac          (a,pl,n,sz,return NULL)
+#define     ndk_array_init_rse(a,pl,n,sz)       ndk_array_init_ac          (a,pl,n,sz,{ngx_script_error (e); return;})
+#define     ndk_array_init_sce(a,pl,n,sz)       ndk_array_init_ac          (a,pl,n,sz,{ngx_script_configure_error (c); return;})
 #define     ndk_array_init_g(a,pl,n,sz,_lb)     ndk_array_init_ac          (a,pl,n,sz,goto _lb)
 #define     ndk_array_init_ge(a,pl,n,sz)        ndk_array_init_ac          (a,pl,n,sz,goto error)
 
@@ -63,6 +67,8 @@
 #define     ndk_array_push_rcok(p,a)            ndk_array_push_ac          (p,a,return NGX_CONF_OK)
 #define     ndk_array_push_re(p,a)              ndk_array_push_ac          (p,a,return NGX_ERROR)
 #define     ndk_array_push_rn(p,a)              ndk_array_push_ac          (p,a,return NULL)
+#define     ndk_array_push_rse(p,a)             ndk_array_push_ac          (p,a,{ngx_script_error (e); return;})
+#define     ndk_array_push_sce(p,a)             ndk_array_push_ac          (p,a,{ngx_script_configure_error (c); return;})
 #define     ndk_array_push_g(p,a,_lb)           ndk_array_push_ac          (p,a,goto _lb)
 #define     ndk_array_push_ge(p,a)              ndk_array_push_ac          (p,a,goto error)
 
@@ -74,6 +80,8 @@
 #define     ndk_array_push_clean_rcok(p,a)      ndk_array_push_clean_ac    (p,a,return NGX_CONF_OK)
 #define     ndk_array_push_clean_re(p,a)        ndk_array_push_clean_ac    (p,a,return NGX_ERROR)
 #define     ndk_array_push_clean_rn(p,a)        ndk_array_push_clean_ac    (p,a,return NULL)
+#define     ndk_array_push_clean_rse(p,a)       ndk_array_push_clean_ac    (p,a,{ngx_script_error (e); return;})
+#define     ndk_array_push_clean_sce(p,a)       ndk_array_push_clean_ac    (p,a,{ngx_script_configure_error (c); return;})
 #define     ndk_array_push_clean_g(p,a,_lb)     ndk_array_push_clean_ac    (p,a,goto _lb)
 #define     ndk_array_push_clean_ge(p,a)        ndk_array_push_clean_ac    (p,a,goto error)
 
@@ -85,6 +93,8 @@
 #define     ndk_array_push_n_rcok(p,a,n)        ndk_array_push_n_ac        (p,a,n,return NGX_CONF_OK)
 #define     ndk_array_push_n_re(p,a,n)          ndk_array_push_n_ac        (p,a,n,return NGX_ERROR)
 #define     ndk_array_push_n_rn(p,a,n)          ndk_array_push_n_ac        (p,a,n,return NULL)
+#define     ndk_array_push_n_rse(p,a,n)         ndk_array_push_n_ac        (p,a,n,{ngx_script_error (e); return;})
+#define     ndk_array_push_n_sce(p,a,n)         ndk_array_push_n_ac        (p,a,n,{ngx_script_configure_error (c); return;})
 #define     ndk_array_push_n_g(p,a,n,_lb)       ndk_array_push_n_ac        (p,a,n,goto _lb)
 #define     ndk_array_push_n_ge(p,a,n)          ndk_array_push_n_ac        (p,a,n,goto error)
 
@@ -96,6 +106,8 @@
 #define     ndk_array_push_n_clean_rcok(p,a,n)  ndk_array_push_n_clean_ac  (p,a,n,return NGX_CONF_OK)
 #define     ndk_array_push_n_clean_re(p,a,n)    ndk_array_push_n_clean_ac  (p,a,n,return NGX_ERROR)
 #define     ndk_array_push_n_clean_rn(p,a,n)    ndk_array_push_n_clean_ac  (p,a,n,return NULL)
+#define     ndk_array_push_n_clean_rse(p,a,n)   ndk_array_push_n_clean_ac  (p,a,n,{ngx_script_error (e); return;})
+#define     ndk_array_push_n_clean_sce(p,a,n)   ndk_array_push_n_clean_ac  (p,a,n,{ngx_script_configure_error (c); return;})
 #define     ndk_array_push_n_clean_g(p,a,n,_lb) ndk_array_push_n_clean_ac  (p,a,n,goto _lb)
 #define     ndk_array_push_n_clean_ge(p,a,n)    ndk_array_push_n_clean_ac  (p,a,n,goto error)
 
