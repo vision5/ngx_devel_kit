@@ -87,9 +87,7 @@ ndk_conf_set_http_complex_value_slot (ngx_conf_t *cf, ngx_command_t *cmd, void *
 
     value = cf->args->elts;
 
-    cv->value = value[1];
-
-    if (ndk_http_complex_value_compile (cf, cv, value))
+    if (ndk_http_complex_value_compile (cf, cv, value + 1))
         return  NGX_CONF_ERROR;
 
     if (cmd->post) {
