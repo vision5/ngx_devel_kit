@@ -1,4 +1,4 @@
- 
+
 /*
  * 2010 (C) Marcus Clyne
  */
@@ -52,7 +52,7 @@ static void         ndk_http_exit_master         (ngx_cycle_t *cycle);
 
 
 ngx_http_module_t   ndk_http_module_ctx = {
-    
+
 #if (NDK_HTTP_PRE_CONFIG)
     ndk_http_preconfiguration,
 #else
@@ -125,7 +125,7 @@ ngx_module_t          ndk_http_module = {
 
     NULL,                                   // init thread
     NULL,                                   // exit thread
-    
+
 #if (NDK_HTTP_EXIT_PROCESS)
     ndk_http_exit_process,
 #else
@@ -146,9 +146,10 @@ static void *
 ndk_http_create_main_conf (ngx_conf_t *cf)
 {
     ndk_http_main_conf_t    *mcf;
-    
+
     ndk_pcallocp_rce (mcf, cf->pool);
-    
+
     return  mcf;
 }
 #endif
+

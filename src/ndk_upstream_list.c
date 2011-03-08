@@ -69,7 +69,7 @@ ndk_upstream_list (ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
     ndk_http_main_conf_t        *mcf;
 
     mcf = ngx_http_conf_get_module_main_conf (cf, ndk_http_module);
-    
+
     ula = mcf->upstreams;
 
     // create array of upstream lists it doesn't already exist
@@ -94,7 +94,7 @@ ndk_upstream_list (ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
 
     for ( ; ul<ule; ul++) {
 
-        if (ul->name.len == value->len && 
+        if (ul->name.len == value->len &&
             ngx_strncasecmp (ul->name.data, value->data, value->len) == 0) {
 
             ngx_conf_log_error (NGX_LOG_EMERG, cf, 0,
@@ -148,7 +148,7 @@ ndk_upstream_list (ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
     bucket = ngx_palloc (cf->pool, buckets * sizeof (ngx_str_t **));
     if (bucket == NULL)
         return  NGX_CONF_ERROR;
-    
+
     ul->elts = bucket;
     ul->nelts = buckets;
 
@@ -177,15 +177,15 @@ ndk_upstream_list (ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
     }
 
     return  NGX_CONF_OK;
-} 
+}
 
 
 ndk_upstream_list_t *
 ndk_get_upstream_list (ndk_http_main_conf_t *mcf, u_char *data, size_t len)
 {
-    ndk_upstream_list_t         *ul, *ule;  
+    ndk_upstream_list_t         *ul, *ule;
     ngx_array_t                 *ua = mcf->upstreams;
-    
+
     if (ua == NULL) {
         return NULL;
     }
@@ -202,3 +202,4 @@ ndk_get_upstream_list (ndk_http_main_conf_t *mcf, u_char *data, size_t len)
 
     return NULL;
 }
+
