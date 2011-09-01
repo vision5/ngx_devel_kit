@@ -1,4 +1,3 @@
-
 Nginx Auto Lib Core
 ===================
 
@@ -11,7 +10,7 @@ cross-platform way to include external libraries.
 Any developers of Nginx modules are encouraged to use Auto Lib Core to handle library
 dependencies for their modules rather than writing their own custom handler from scratch.
 
-Note : the latest version can be found at github.com/simpl-it/ngx_auto_lib
+Note : the latest version can be found at github.com/simpl/ngx_auto_lib
 
 
 Information for end users
