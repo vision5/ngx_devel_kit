@@ -94,7 +94,7 @@ u_char *
 ndk_vcatstrf (ngx_pool_t *pool, ngx_str_t *dest, const char *fmt, va_list args)
 {
     size_t          len, l, el;
-    int             argc, escape;
+    int             argc;
     u_char         *p, *m, *e, c, c1, *cp;
 
     argc = strlen (fmt);
@@ -107,7 +107,6 @@ ndk_vcatstrf (ngx_pool_t *pool, ngx_str_t *dest, const char *fmt, va_list args)
     cp = cs;
 
     len = 0;
-    escape = 0;
 
     // TODO : maybe have 'e' at the beginning?
 
@@ -265,7 +264,6 @@ ndk_vcatstrf (ngx_pool_t *pool, ngx_str_t *dest, const char *fmt, va_list args)
 
         sp++;
         fmt++;
-        escape = 0;
     }
 
 
