@@ -1,4 +1,3 @@
-
     Nginx Development Kit (NDK)
     ===========================
 
@@ -55,7 +54,7 @@ Usage for users
     If another Nginx module you wish to use specifies that the NDK is a dependency, you
     will need to do the following :
 
-    1 - download the source (http://github.com/simpl-it/ngx_devel_kit)
+    1 - download the source (http://github.com/simpl/ngx_devel_kit)
 
     2 - unpack the source (tar -xzf $name)
 
