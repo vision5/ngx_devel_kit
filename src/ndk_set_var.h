@@ -1,8 +1,9 @@
-
 /*
  * 2010 (C) Marcus Clyne
  */
 
+#ifndef _NDK_SET_VAR_H_INCLUDED_
+#define _NDK_SET_VAR_H_INCLUDED_
 
 
 typedef ngx_int_t   (*ndk_set_var_pt)              (ngx_http_request_t *r, ngx_str_t *val);
@@ -31,7 +32,6 @@ enum {
 };
 
 
-
 char *  ndk_set_var                    (ngx_conf_t *cf, ngx_command_t *cmd, void *conf);
 char *  ndk_set_var_value              (ngx_conf_t *cf, ngx_command_t *cmd, void *conf);
 char *  ndk_set_var_multi_value        (ngx_conf_t *cf, ngx_command_t *cmd, void *conf);
@@ -40,3 +40,5 @@ char *  ndk_set_var_multi_value        (ngx_conf_t *cf, ngx_command_t *cmd, void
 char *  ndk_set_var_core               (ngx_conf_t *cf, ngx_str_t *name, ndk_set_var_t *filter);
 char *  ndk_set_var_value_core         (ngx_conf_t *cf, ngx_str_t *name, ngx_str_t *value, ndk_set_var_t *filter);
 char *  ndk_set_var_multi_value_core   (ngx_conf_t *cf, ngx_str_t *name, ngx_str_t *value, ndk_set_var_t *filter);
+
+#endif /* _NDK_SET_VAR_H_INCLUDED_ */
