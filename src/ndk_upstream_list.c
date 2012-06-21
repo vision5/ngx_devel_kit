@@ -1,6 +1,6 @@
 
 
-// TODO : generalize this into a generic list module, with weight
+/* TODO : generalize this into a generic list module, with weight */
 
 
 typedef struct {
@@ -58,7 +58,7 @@ ndk_upstream_list_parse_weight (ndk_upstream_list_parse_t *ulp)
 static char *
 ndk_upstream_list (ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
 {
-    // TODO : change this for getting upstream pointer if available
+    /* TODO : change this for getting upstream pointer if available */
 
     ngx_uint_t                   buckets, count, i, j;
     ngx_str_t                   *value, **bucket, *us;
@@ -72,7 +72,7 @@ ndk_upstream_list (ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
 
     ula = mcf->upstreams;
 
-    // create array of upstream lists it doesn't already exist
+    /* create array of upstream lists it doesn't already exist */
 
     if (ula == NULL) {
 
@@ -84,7 +84,7 @@ ndk_upstream_list (ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
     }
 
 
-    // check to see if the list already exists
+    /* check to see if the list already exists */
 
     value = cf->args->elts;
     value++;
@@ -105,7 +105,7 @@ ndk_upstream_list (ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
     }
 
 
-    // create a new list
+    /* create a new list */
 
     ul = ngx_array_push (ula);
     if (ul == NULL)
@@ -115,7 +115,7 @@ ndk_upstream_list (ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
 
 
 
-    // copy all the upstream names
+    /* copy all the upstream names */
 
     count = cf->args->nelts - 2;
 
@@ -126,7 +126,7 @@ ndk_upstream_list (ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
     ngx_memcpy (us, value + 1, count * sizeof (ngx_str_t));
 
 
-    // calculate the total number of buckets
+    /* calculate the total number of buckets */
 
     buckets = 0;
 
@@ -143,7 +143,7 @@ ndk_upstream_list (ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
     }
 
 
-    // allocate space for all buckets
+    /* allocate space for all buckets */
 
     bucket = ngx_palloc (cf->pool, buckets * sizeof (ngx_str_t **));
     if (bucket == NULL)
@@ -153,7 +153,7 @@ ndk_upstream_list (ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
     ul->nelts = buckets;
 
 
-    // set values for each bucket
+    /* set values for each bucket */
 
     us -= count;
 
@@ -167,8 +167,8 @@ ndk_upstream_list (ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
         us->data = ulp.s.data;
         us->len = ulp.s.len;
 
-        // TODO : check format of upstream
-        // TODO : add automatic adding of http:// in upstreams?
+        /* TODO : check format of upstream */
+        /* TODO : add automatic adding of http:// in upstreams? */
 
         for (j=0; j<ulp.weight; j++, bucket++) {
 

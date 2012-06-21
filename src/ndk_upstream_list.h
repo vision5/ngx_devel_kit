@@ -1,7 +1,7 @@
 
 #if (NDK_UPSTREAM_LIST_CMDS)
 
-// TODO : use the generated commands
+/* TODO : use the generated commands */
 
 {
     ngx_string ("upstream_list"),

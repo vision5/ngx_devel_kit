@@ -2,7 +2,7 @@
 #define NDK_DEBUG_H
 
 
-// TODO : use the Nginx printf function
+/* TODO : use the Nginx printf function */
 
 
 #include <ngx_core.h>
@@ -24,11 +24,11 @@
             fprintf(stderr, "%-60s", func); \
             fprintf(stderr, (const char *)__VA_ARGS__); \
             fprintf(stderr,"\n");
-            //fprintf(stderr, " at %s line %d.\n", __FILE__, __LINE__)
+            /*fprintf(stderr, " at %s line %d.\n", __FILE__, __LINE__)*/
 
     #else
 
-        // NOTE : these includes might not be necessary since they're probably included with the core
+        /* NOTE : these includes might not be necessary since they're probably included with the core */
 
         #include <stdarg.h>
         #include <stdio.h>
@@ -48,8 +48,8 @@
         {
             ngx_http_posted_request_t       *pr;
 
-            // TODO : improve the format
-            
+            /* TODO : improve the format */
+
             fprintf (stderr, "%s %.*s %.*s?%.*s c:%d m:%p r:%p ar:%p pr:%p",
                     func,
                     (int) r->method_name.len, r->method_name.data,

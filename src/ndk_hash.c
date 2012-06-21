@@ -3,7 +3,7 @@
 
 
 
-// openssl hashes
+/* openssl hashes */
 
 #define     NDK_OPENSSL_HASH(type,ctxt_type,upper)                  \
     u_char              md [ctxt_type ## _DIGEST_LENGTH];           \
@@ -52,7 +52,7 @@ ndk_sha1_hash_upper (u_char *p, char *data, size_t len)
 
 
 
-// non-openssl hashes
+/* non-openssl hashes */
 
 #ifdef NDK_MURMUR2
 

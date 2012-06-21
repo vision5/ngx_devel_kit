@@ -1,8 +1,8 @@
 
 
 #if 1
-// TODO : set ndk_hex_dump for older versions of Nginx
-#define     ndk_hex_dump                    ngx_hex_dump        
+/* TODO : set ndk_hex_dump for older versions of Nginx */
+#define     ndk_hex_dump                    ngx_hex_dump
 #endif
 
 typedef struct {

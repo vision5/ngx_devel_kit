@@ -26,7 +26,7 @@ ndk_clean_path (ngx_str_t *path, ngx_uint_t complex, size_t off)
         return;
     }
 
-    // strip initial './'
+    /* strip initial './' */
 
     s = path->data;
     e = s + path->len;
@@ -47,7 +47,7 @@ ndk_clean_path (ngx_str_t *path, ngx_uint_t complex, size_t off)
 
         case    '/' :
 
-            // '//' => '/'
+            /* '//' => '/' */
 
             s++;
             continue;
@@ -66,7 +66,7 @@ ndk_clean_path (ngx_str_t *path, ngx_uint_t complex, size_t off)
                 return;
             }
 
-            // './' => ''
+            /* './' => '' */
 
             if (s[1] == '/') {
 
@@ -106,7 +106,7 @@ check_basic :
 
             case    '/' :
 
-                // '//' => '/'
+                /* '//' => '/' */
 
                 m = p + 2;
                 goto copy;
@@ -120,7 +120,7 @@ check_basic :
 
                 case    '/' :
 
-                    // './' => ''
+                    /* './' => '' */
 
                     m = p + 2;
                     goto copy;
@@ -139,9 +139,9 @@ check_basic :
 
                             if (p[-1] == '.' && p[-2] == '.') {
 
-                                if (p - s == 2 || p[-3] == '/') {    // = '../../'
+                                if (p - s == 2 || p[-3] == '/') {    /* = '../../' */
 
-                                    p += 2;     // 3?
+                                    p += 2;     /* 3? */
                                     continue;
                                 }
                             }
@@ -173,7 +173,7 @@ check_basic :
 
                            for (p--; p > s; p--) {
 
-                                // '/path/folder/../' => '/path/'
+                                /* '/path/folder/../' => '/path/' */
 
                                 if (*p == '/')
                                     break;
@@ -232,7 +232,7 @@ copy :
 
                 case    '/' :
 
-                    // './' => ''
+                    /* './' => '' */
 
                     m += 2;
                     if (m == e)
@@ -244,11 +244,11 @@ copy :
 
                     if (e - m == 2 || m[2] == '/') {
 
-                        if (m - s >= 3) {   // NOTE : this is one higher than above because m has moved on 1
+                        if (m - s >= 3) {   /* NOTE : this is one higher than above because m has moved on 1 */
 
                             if (p[-2] == '.' && p[-3] == '.') {
 
-                                if (m - s == 3 || p[-4] == '/') {    // = '../../'
+                                if (m - s == 3 || p[-4] == '/') {    /* = '../../' */
 
                                     p[0] = '.';
                                     p[1] = '.';
@@ -296,7 +296,7 @@ copy :
 
                             for (p -= 2; p > s; p--) {
 
-                                // '/path/folder/../' => '/path/'
+                                /* '/path/folder/../' => '/path/' */
 
                                 if (*p == '/')
                                     break;
@@ -495,7 +495,7 @@ ndk_conf_set_full_path_slot (ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
 char *
 ndk_conf_set_split_path_slot (ngx_conf_t *cf, ngx_command_t *cmd, void *conf)     
 {
-    // TODO : change to use the path func above
+    /* TODO : change to use the path func above */
 
     char  *p = conf;
 

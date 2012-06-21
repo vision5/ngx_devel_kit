@@ -109,9 +109,9 @@ ndk_vcatstrf (ngx_pool_t *pool, ngx_str_t *dest, const char *fmt, va_list args)
     len = 0;
     escape = 0;
 
-    // TODO : maybe have 'e' at the beginning?
+    /* TODO : maybe have 'e' at the beginning? */
 
-    // parse format to get strings
+    /* parse format to get strings */
 
     while (*fmt) {
 
@@ -270,14 +270,14 @@ ndk_vcatstrf (ngx_pool_t *pool, ngx_str_t *dest, const char *fmt, va_list args)
 
 
 
-    // create space for string (assumes no NULL's in strings)
+    /* create space for string (assumes no NULL's in strings) */
 
     ndk_palloc_rn (p, pool, len + 1);
 
     dest->data = p;
     dest->len = len;
 
-    // copy other strings
+    /* copy other strings */
 
     if (len) {
 

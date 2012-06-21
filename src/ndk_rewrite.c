@@ -1,8 +1,9 @@
 
 
-// these have been taken from the rewrite module and http_script file
-// because those functions are defined as being static - a patch will
-// be provided later to un-define them as being static
+/* these have been taken from the rewrite module and http_script file
+ * because those functions are defined as being static - a patch will
+ * be provided later to un-define them as being static
+ */
 
 
 uintptr_t ndk_http_script_exit_code = (uintptr_t) NULL;
@@ -64,7 +65,6 @@ ndk_http_rewrite_value (ngx_conf_t *cf, ndk_http_rewrite_loc_conf_t *lcf,
 
     return NGX_CONF_OK;
 }
-
 
 
 ngx_int_t

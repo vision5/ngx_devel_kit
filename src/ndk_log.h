@@ -1,7 +1,7 @@
 
-// TODO : fix the conf_log macros
+/* TODO : fix the conf_log macros */
 
-#define NGX_LOG_DEBUG_SCRIPT        NGX_LOG_DEBUG_HTTP      // TODO : add new section to log/conf directives
+#define NGX_LOG_DEBUG_SCRIPT        NGX_LOG_DEBUG_HTTP      /* TODO : add new section to log/conf directives */
 
 #define ndk_conf_to_log(cf)         ((cf)->log)
 

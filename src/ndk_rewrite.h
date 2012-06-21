@@ -1,10 +1,10 @@
 
 
-// TODO : should remove this when not needed
+/* TODO : should remove this when not needed */
 
 
 
-// used for plugging into the rewrite module (taken from the rewrite module)
+/* used for plugging into the rewrite module (taken from the rewrite module) */
 
 typedef struct {
     ngx_array_t  *codes;        /* uintptr_t */

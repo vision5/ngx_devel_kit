@@ -1,7 +1,7 @@
 
 
-// TODO : organize and add
-// TODO : check - should it be r->main?
+/* TODO : organize and add */
+/* TODO : check - should it be r->main? */
 
 #define     ndk_http_uri(r)                         (r)->uri
 #define     ndk_http_request_uri(r)                 (r)->unparsed_uri
