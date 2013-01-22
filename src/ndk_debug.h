@@ -43,7 +43,7 @@
 
         #define ndk_debug_request()  ndk_debug_request_helper(r, __func__)
 
-        static inline void
+        static ngx_inline void
         ndk_debug_request_helper (ngx_http_request_t *r, const char *func)
         {
             ngx_http_posted_request_t       *pr;
@@ -69,7 +69,7 @@
             fprintf (stderr, "\n");
         }
 
-        
+
     #else
 
         #define ndk_debug_request()
@@ -77,18 +77,18 @@
     #endif
 
 
-    static inline void
+    static ngx_inline void
     ndk_debug_print_posted_requests (ngx_http_request_t *r)
     {
         ngx_http_posted_request_t   *pr;
-        
+
         ndk_request_log_debug_http (r, "ndk debug - http posted requests");
-        
+
         for (pr = r->main->posted_requests; pr; pr = pr->next) {
-        
+
             if (!pr->request)
                 continue;
-            
+
             ndk_request_log_debug_http (r, "ndk debug - http posted request:%V", &pr->request->uri);
         }
     }
@@ -96,22 +96,22 @@
 
     #define ndk_debug_http_conf_location(cf)    ndk_debug_http_conf_location_helper (cf, __func__)
 
-    static inline void
+    static ngx_inline void
     ndk_debug_http_conf_location_helper (ngx_conf_t *cf, const char *func)
     {
         ngx_http_core_loc_conf_t        *lcf;
-        
+
         lcf = ngx_http_conf_get_module_loc_conf (cf, ngx_http_core_module);
-        
+
         ndk_debug_helper (func, "[%s]", lcf->name.data);
     }
-    
+
     /*
     static void
     ndk_debug_log_chain (ngx_log_t *log, ngx_chain_t *cl)
     {
-        
-        
+
+
     }
     */
 

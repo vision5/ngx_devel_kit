@@ -22,7 +22,7 @@ ndk_conf_set_true_slot (ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
     if (*fp != NGX_CONF_UNSET) {
         return  "is duplicate";
     }
- 
+
     *fp = 1;
 
     if (cmd->post) {
@@ -48,7 +48,7 @@ ndk_conf_set_false_slot (ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
     if (*fp != NGX_CONF_UNSET) {
         return  "is duplicate";
     }
- 
+
     *fp = 0;
 
     if (cmd->post) {
@@ -74,7 +74,7 @@ ndk_conf_set_ptr_slot (ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
     if (*ptr != NGX_CONF_UNSET_PTR) {
         return  "is duplicate";
     }
- 
+
     *ptr = cmd->post;
 
     return  NGX_CONF_OK;
@@ -95,7 +95,7 @@ ndk_conf_set_null_slot (ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
     if (*pp != NGX_CONF_UNSET_PTR) {
         return  "is duplicate";
     }
- 
+
     *pp = NULL;
 
     if (cmd->post) {
@@ -147,7 +147,7 @@ ndk_conf_set_str_array_multi_slot (ngx_conf_t *cf, ngx_command_t *cmd, void *con
     ngx_array_t      **a;
     ngx_conf_post_t   *post;
     ngx_uint_t         i;
-    
+
     a = (ngx_array_t **) (p + cmd->offset);
 
     if (*a == NGX_CONF_UNSET_PTR) {
@@ -185,7 +185,7 @@ char *
 ndk_conf_set_keyval1_slot (ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
 {
     char  *p = conf;
-    
+
     ngx_str_t           *value;
     ngx_keyval_t        *kv;
     ngx_conf_post_t     *post;
@@ -298,15 +298,15 @@ ndk_conf_create_http_location (ngx_conf_t *cf)
     ngx_http_core_loc_conf_t     *clcf, *pclcf;
     ngx_uint_t                    i;
     ngx_http_module_t            *module;
-    
+
     ndk_pcallocp_rce (ctx, cf->pool);
-    
+
     pctx = cf->ctx;
     ctx->main_conf = pctx->main_conf;
     ctx->srv_conf = pctx->srv_conf;
 
     ndk_pcalloc_rce (ctx->loc_conf, cf->pool, sizeof(void *) * ngx_http_max_module);
-    
+
 
     for (i = 0; ngx_modules[i]; i++) {
         if (ngx_modules[i]->type != NGX_HTTP_MODULE) {
@@ -346,22 +346,22 @@ ngx_conf_create_http_named_location (ngx_conf_t *cf, ngx_str_t *name)
 {
     ngx_http_conf_ctx_t          *ctx;
     ngx_http_core_loc_conf_t     *clcf;
-    
+
     ctx = ndk_conf_create_http_location (cf);
     if (ctx == NGX_CONF_ERROR)
         return  NGX_CONF_ERROR;
-    
+
     clcf = ctx->loc_conf[ngx_http_core_module.ctx_index];
-    
-    // in case the developer forgets to add '@' at the beginning of the named location
-    
+
+    /* in case the developer forgets to add '@' at the beginning of the named location */
+
     if (name->data[0] != '@' && ndk_catstrf (cf->pool, name, "sS", "@", name) == NULL)
         return  NGX_CONF_ERROR;
-    
-    clcf->name = *name;     // TODO : copy?
+
+    clcf->name = *name;     /* TODO : copy? */
     clcf->noname = 0;
     clcf->named = 1;
-    
+
     return  ctx;
 }
 
@@ -371,7 +371,7 @@ ndk_replace_command (ngx_command_t *new_cmd, ngx_uint_t module_type)
 {
     ngx_uint_t       i;
     ngx_command_t   *cmd;
-    
+
     for (i = 0; ngx_modules[i]; i++) {
 
         if (ngx_modules[i]->type != module_type)
@@ -383,14 +383,14 @@ ndk_replace_command (ngx_command_t *new_cmd, ngx_uint_t module_type)
         }
 
         for ( /* void */ ; cmd->name.len; cmd++) {
-            
+
             if (ndk_cmpstr (&new_cmd->name, &cmd->name) == 0) {
-                
+
                 ndk_memcpyp (cmd, new_cmd);
                 return  NGX_OK;
             }
         }
     }
-    
+
     return  NGX_DECLINED;
 }

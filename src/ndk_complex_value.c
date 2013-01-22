@@ -1,4 +1,4 @@
- 
+
 
 
 ngx_int_t
@@ -78,7 +78,7 @@ ndk_conf_set_http_complex_value_slot (ngx_conf_t *cf, ngx_command_t *cmd, void *
     ngx_http_complex_value_t    *cv;
     ngx_str_t                   *value;
     ngx_conf_post_t             *post;
-    
+
     cv = (ngx_http_complex_value_t *) (p + cmd->offset);
 
     if (cv->value.data) {
@@ -172,7 +172,7 @@ ndk_conf_set_http_complex_keyval_slot (ngx_conf_t *cf, ngx_command_t *cmd, void 
     ckv = ngx_array_push (*a);
     if (ckv == NULL) {
         return  NGX_CONF_ERROR;
-    } 
+    }
 
     value = cf->args->elts;
 
@@ -189,4 +189,4 @@ ndk_conf_set_http_complex_keyval_slot (ngx_conf_t *cf, ngx_command_t *cmd, void 
     return  NGX_CONF_OK;
 }
 
-// TODO : complex keyval1
+/* TODO : complex keyval1 */

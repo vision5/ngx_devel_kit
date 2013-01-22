@@ -1,6 +1,6 @@
 
 
-// conf set functions
+/* conf set functions */
 
 char *  ndk_conf_set_true_slot              (ngx_conf_t *cf, ngx_command_t *cmd, void *conf);
 char *  ndk_conf_set_false_slot             (ngx_conf_t *cf, ngx_command_t *cmd, void *conf);
@@ -19,13 +19,13 @@ ngx_http_conf_ctx_t *   ngx_conf_create_http_named_location     (ngx_conf_t *cf,
 ngx_int_t               ndk_replace_command     (ngx_command_t *new_cmd, ngx_uint_t module_type);
 
 
-// values for conf_set_xxx_flag
+/* values for conf_set_xxx_flag */
 
 #define     NDK_CONF_SET_TRUE       -2
 #define     NDK_CONF_SET_FALSE      -3
 
 
-// wrappers for utility macros
+/* wrappers for utility macros */
 
 #define     ndk_conf_set_bitmask_slot       ngx_conf_set_bitmask_slot
 #define     ndk_conf_set_bufs_slot          ngx_conf_set_bufs_slot

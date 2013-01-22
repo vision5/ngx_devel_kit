@@ -1,4 +1,4 @@
-// optional includes
+/* optional includes */
 
 #if (NDK_BUF)
 #include  <ndk_buf.h>
@@ -47,7 +47,7 @@
 #endif
 
 
-// non-optional includes
+/* non-optional includes */
 
 #include  <ndk_http_headers.h>
 #include  <ndk_log.h>
@@ -55,7 +55,7 @@
 #include  <ndk_string_util.h>
 
 
-// auto-generated headers
+/* auto-generated headers */
 
 #include  <ndk_array.h>
 #include  <ndk_palloc.h>

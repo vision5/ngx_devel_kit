@@ -11,7 +11,7 @@
 */
 
 
-// Non-generated macros
+/* Non-generated macros */
 
 #define     ndk_array_count(a)                  ((a)->nelts)
 #define     ndk_array_get_first(a)              ((a)->elts)
@@ -21,7 +21,7 @@
 #define     ndk_array_push_clean(p,a)           {p = ngx_array_push (a); ndk_zerop (p);}
 
 
-// base action macro macros
+/* base action macro macros */
 
 #define     ndk_array_create_ac(a,pl,n,sz,ac)   {a = ngx_array_create (pl,n,sz); if (a == NULL) ac;}
 #define     ndk_array_init_ac(a,pl,n,sz,ac)     {if (ngx_array_init (a,pl,n,sz) == NGX_ERROR) ac;}
@@ -31,7 +31,7 @@
 #define     ndk_array_push_n_clean_ac(p,a,n,ac) {p = ngx_array_push_n (a,n); if (p == NULL) ac; ndk_zeropn (p,n);}
 
 
-// generated action macros
+/* generated action macros */
 
 #define     ndk_array_create_r0(a,pl,n,sz)      ndk_array_create_ac        (a,pl,n,sz,return 0)
 #define     ndk_array_create_r1(a,pl,n,sz)      ndk_array_create_ac        (a,pl,n,sz,return 1)

@@ -11,9 +11,9 @@
 */
 
 
-// conf-merge-value macros
+/* conf-merge-value macros */
 
-// TODO : check that all the main types have a corresponding merge function
+/* TODO : check that all the main types have a corresponding merge function */
 
 #define     ndk_conf_merge_value            ngx_conf_merge_value
 #define     ndk_conf_merge_off_value        ngx_conf_merge_off_value 
@@ -91,7 +91,7 @@
                 }
 
 
-// conf-merge-prop macros
+/* conf-merge-prop macros */
 
 #define     ndk_conf_merge_prop(prop,default)\
             ndk_conf_merge_value\

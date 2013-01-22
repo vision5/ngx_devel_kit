@@ -82,7 +82,7 @@ ndk_http_complex_path_create_compile (ngx_conf_t *cf, ngx_str_t *path, ngx_uint_
         value.len = m - s;
 
         if (ndk_http_complex_path_value_compile (cf, &cpe->val, &value, prefix) == NGX_ERROR)
-            return  NULL;       
+            return  NULL;
 
         s = m+1;
     }
@@ -114,8 +114,8 @@ ndk_conf_set_http_complex_path_slot (ngx_conf_t *cf, ngx_command_t *cmd, void *c
 
     cp->a = ndk_http_complex_path_create_compile (cf, path, cp->prefix);
     if (cp->a == NULL)
-        // TODO : log
-        return  NGX_CONF_ERROR;    
+        /* TODO : log */
+        return  NGX_CONF_ERROR;
 
     if (cmd->post) {
         post = cmd->post;

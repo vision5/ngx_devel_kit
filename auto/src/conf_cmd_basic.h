@@ -1,5 +1,5 @@
 
-// TODO : finish this
+/* TODO : finish this */
 
 #define     NDK_HTTP_MAIN_CONF              NGX_HTTP_MAIN_CONF
 #define     NDK_HTTP_SRV_CONF               NGX_HTTP_SRV_CONF
@@ -11,7 +11,7 @@
 #define     NDK_ANY_CONF                    NGX_ANY_CONF
 
 
-// compound locations
+/* compound locations */
 
 #define     NDK_HTTP_MAIN_SRV_CONF                  NDK_HTTP_MAIN_CONF|NDK_HTTP_SRV_CONF
 #define     NDK_HTTP_MAIN_SIF_CONF                  NDK_HTTP_MAIN_CONF|NDK_HTTP_SRV_SIF_CONF
@@ -34,7 +34,7 @@
 #define     NDK_HTTP_ANY_CONF                       NDK_HTTP_CONF|NDK_HTTP_UPS_CONF
 
 
-// property offsets     NOTE : ngx_module_main_conf_t etc should be defined in the module's .c file before the commands
+/* property offsets     NOTE : ngx_module_main_conf_t etc should be defined in the module's .c file before the commands */
 
 #define     NDK_HTTP_MAIN_CONF_PROP(p)      NGX_HTTP_MAIN_CONF_OFFSET, offsetof (ndk_module_main_conf_t, p)
 #define     NDK_HTTP_SRV_CONF_PROP(p)       NGX_HTTP_SRV_CONF_OFFSET, offsetof (ndk_module_srv_conf_t, p)

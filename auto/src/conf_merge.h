@@ -1,5 +1,5 @@
 
-// TODO : check that all the main types have a corresponding merge function
+/* TODO : check that all the main types have a corresponding merge function */
 
 #define     ndk_conf_merge_value            ngx_conf_merge_value
 #define     ndk_conf_merge_off_value        ngx_conf_merge_off_value 

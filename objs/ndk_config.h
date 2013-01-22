@@ -11,7 +11,7 @@
 */
 
 
-// include all optional modules
+/* include all optional modules */
 
 #ifdef NDK_ALL
 
@@ -64,7 +64,7 @@
 #endif
 
 
-// module dependencies
+/* module dependencies */
 
 #ifdef  NDK_COMPLEX_PATH
 #ifndef NDK_COMPLEX_VALUE

@@ -43,7 +43,7 @@ static void     ndk_set_var_hash_code      (ngx_http_script_engine_t *e);
 static void     ndk_set_var_value_code     (ngx_http_script_engine_t *e);
 
 
-static inline void
+static ngx_inline void
 ndk_set_var_code_finalize(ngx_http_script_engine_t *e, ngx_int_t rc,
                                 ngx_http_variable_value_t *v, ngx_str_t *str)
 {

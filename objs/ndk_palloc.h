@@ -11,7 +11,7 @@
 */
 
 
-// Non-generated macros
+/* Non-generated macros */
 
 #define     ndk_pallocp(p,pl)                   p = ngx_palloc (pl,sizeof(*p))
 #define     ndk_pallocpn(p,pl,n)                p = ngx_palloc (pl,sizeof(*p)*(n))
@@ -20,7 +20,7 @@
 #define     ndk_pcallocpn(p,pl,n)               p = ngx_pcalloc (pl,sizeof(*p)*(n))
 
 
-// base action macro macros
+/* base action macro macros */
 
 #define     ndk_palloc_ac(p,pl,sz,ac)           {p = ngx_palloc (pl,sz);    if (p == NULL) ac;}
 #define     ndk_pallocp_ac(p,pl,ac)             {ndk_pallocp (p,pl);        if (p == NULL) ac;}
@@ -30,7 +30,7 @@
 #define     ndk_pcallocpn_ac(p,pl,n,ac)         {ndk_pcallocpn (p,pl,n);    if (p == NULL) ac;}
 
 
-// generated action macros
+/* generated action macros */
 
 #define     ndk_palloc_r0(p,pl,sz)              ndk_palloc_ac              (p,pl,sz,return 0)
 #define     ndk_palloc_r1(p,pl,sz)              ndk_palloc_ac              (p,pl,sz,return 1)

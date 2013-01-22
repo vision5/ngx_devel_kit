@@ -100,7 +100,7 @@ function add_non_generated_content {
     file=src/$1.h
     [ ! -f $file ] && return
 
-    echo "// Non-generated macros" >> $2
+    echo "/* Non-generated macros */" >> $2
     echo >> $2
 
     cat $file | trim_lines >> $2
@@ -131,7 +131,7 @@ function add_action_macros {
 
     # base macros
 
-    echo "// base action macro macros" >> $out
+    echo "/* base action macro macros */" >> $out
     echo >> $out
 
     cat $list_file | trim_lines | sed -r \
@@ -147,7 +147,7 @@ function add_action_macros {
 
     # generated macros
 
-    echo "// generated action macros" >> $out
+    echo "/* generated action macros */" >> $out
     echo >> $out
 
     cat -s $list_file | while read list_line; do
@@ -246,7 +246,7 @@ function generate_non_optional_h_includes {
 
     # TODO : split into auto-generated and non-auto-generated ones
 
-    echo "// non-optional includes" >> $1
+    echo "/* non-optional includes */" >> $1
     echo >> $1
 
     for mod in `cat $headers_file | sort`; do
@@ -261,7 +261,7 @@ function generate_non_optional_h_includes {
 
 function generate_include_all_includes {
 
-    echo "// include all optional modules" >> $1
+    echo "/* include all optional modules */" >> $1
     echo >> $1
     echo "#ifdef NDK_ALL" >> $1
     echo >> $1
@@ -284,7 +284,7 @@ function generate_include_all_includes {
 
 function generate_dependent_includes {
 
-    echo "// module dependencies" >> $1
+    echo "/* module dependencies */" >> $1
     echo >> $1
 
     cat $module_dependencies_file | while read line; do
@@ -296,7 +296,7 @@ function generate_dependent_includes {
             def="NDK_`strtoupper $mod`"
 
             if [ $first = 1 ] ; then
-                
+
                 echo "#ifdef  $def" >> $1
                 first=0
             else
@@ -317,7 +317,7 @@ function generate_dependent_includes {
 
 function generate_optional_h_includes {
 
-    echo "// optional includes" >> $1
+    echo "/* optional includes */" >> $1
     echo >> $1
 
     for mod in $modules; do
@@ -343,14 +343,14 @@ function generate_conf_merge_macros_file {
 
     add_notice $out
 
-    echo "// conf-merge-value macros" >> $out
+    echo "/* conf-merge-value macros */" >> $out
     echo >> $out
 
     cat $srcs_dir/$file | trim_lines >> $out
     echo >> $out
     echo >> $out
 
-    echo "// conf-merge-prop macros" >> $out
+    echo "/* conf-merge-prop macros */" >> $out
     echo >> $out
 
     echo "#define     ndk_conf_merge_prop(prop,default)\\" >> $out
@@ -390,7 +390,7 @@ function generate_conf_cmd_basic_file {
 
     # add ndk bitmasks
 
-    echo "// conf cmd core values/bitmasks" >> $out
+    echo "/* conf cmd core values/bitmasks */" >> $out
     echo >> $out
 
 
@@ -406,7 +406,7 @@ function generate_conf_cmd_basic_file {
 
     # add additional bitmasks stored in file
 
-    echo "// conf cmd bitmasks" >> $out
+    echo "/* conf cmd bitmasks */" >> $out
     echo >> $out
 
     cat $srcs_dir/$conf_cmd_basic_filename | trim_lines >> $out
@@ -414,7 +414,7 @@ function generate_conf_cmd_basic_file {
     echo >> $out
     echo >> $out
 
-    echo "// conf cmd basic macros" >> $out
+    echo "/* conf cmd basic macros */" >> $out
     echo >> $out
 
 
@@ -455,7 +455,7 @@ function generate_conf_cmd_extra_file {
 
     add_notice $out
 
-    echo "// conf command macros" >> $out
+    echo "/* conf command macros */" >> $out
     echo >> $out
 
 
@@ -490,7 +490,7 @@ function generate_conf_cmd_extra_file {
 
 function generate_auto_generated_h_includes {
 
-    echo "// auto-generated headers" >> $1
+    echo "/* auto-generated headers */" >> $1
     echo >> $1
 
     for name in `cat $header_file | sort` ; do
@@ -511,7 +511,7 @@ function generate_auto_generated_h_includes {
 
 function generate_optional_c_includes {
 
-    echo "// optional includes" >> $1
+    echo "/* optional includes */" >> $1
     echo >> $1
 
     modules=`cat $optional_modules_file | sed 's/*//g' | sort`
@@ -530,7 +530,7 @@ function generate_optional_c_includes {
 
 function generate_commands {
 
-    echo "// module commands" >> $1
+    echo "/* module commands */" >> $1
     echo >> $1
     echo "static ngx_command_t  ndk_http_commands[] = {" >> $1
 

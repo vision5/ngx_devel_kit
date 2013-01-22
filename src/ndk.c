@@ -102,9 +102,9 @@ ngx_http_module_t   ndk_http_module_ctx = {
 ngx_module_t          ndk_http_module = {
 
     NGX_MODULE_V1,
-    &ndk_http_module_ctx,          // module context
-    ndk_http_commands,             // module directives
-    NGX_HTTP_MODULE,                // module type
+    &ndk_http_module_ctx,          /* module context */
+    ndk_http_commands,             /* module directives */
+    NGX_HTTP_MODULE,               /* module type */
 
 #if (NDK_HTTP_INIT_MASTER)
     ndk_http_init_master,
@@ -123,8 +123,8 @@ ngx_module_t          ndk_http_module = {
     NULL,
 #endif
 
-    NULL,                                   // init thread
-    NULL,                                   // exit thread
+    NULL,                                   /* init thread */
+    NULL,                                   /* exit thread */
 
 #if (NDK_HTTP_EXIT_PROCESS)
     ndk_http_exit_process,
