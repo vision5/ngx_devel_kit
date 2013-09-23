@@ -93,7 +93,7 @@ ndk_set_var_code(ngx_http_script_engine_t *e)
 
     v = e->sp++;
 
-    func = sv->func;
+    func = (ndk_set_var_pt) sv->func;
 
     rc = func(e->request, &str);
 
@@ -116,7 +116,7 @@ ndk_set_var_data_code(ngx_http_script_engine_t *e)
 
     v = e->sp++;
 
-    func = svd->func;
+    func = (ndk_set_var_data_pt) svd->func;
 
     rc = func(e->request, &str, svd->data);
 
@@ -139,7 +139,7 @@ ndk_set_var_value_code(ngx_http_script_engine_t *e)
 
     v = e->sp - 1;
 
-    func = sv->func;
+    func = (ndk_set_var_value_pt) sv->func;
 
     rc = func(e->request, &str, v);
 
@@ -162,7 +162,7 @@ ndk_set_var_value_data_code(ngx_http_script_engine_t *e)
 
     v = e->sp - 1;
 
-    func = svd->func;
+    func = (ndk_set_var_value_data_pt) svd->func;
 
     rc = func(e->request, &str, v, svd->data);
 
@@ -186,7 +186,7 @@ ndk_set_var_multi_value_code(ngx_http_script_engine_t *e)
     v = e->sp - svs->size;
     e->sp = v + 1;
 
-    func = svs->func;
+    func = (ndk_set_var_value_pt) svs->func;
 
     rc = func(e->request, &str, v);
 
@@ -210,7 +210,7 @@ ndk_set_var_multi_value_data_code(ngx_http_script_engine_t *e)
     v = e->sp - svsd->size;
     e->sp = v + 1;
 
-    func = svsd->func;
+    func = (ndk_set_var_value_data_pt) svsd->func;
 
     rc = func(e->request, &str, v, svsd->data);
 
@@ -239,7 +239,7 @@ ndk_set_var_hash_code(ngx_http_script_engine_t *e)
 
     v = e->sp - 1;
 
-    func = svs->func;
+    func = (ndk_set_var_hash_pt) svs->func;
 
     func(p, (char *) v->data, v->len);
 
