@@ -159,6 +159,7 @@
 
 #else /* NO VARIADIC MACROS */
 
-#warning "Nginx Devel Kit logging without variadic macros not yet implemented"
+/* #warning does not work on Windows */
+#pragma message("Nginx Devel Kit logging without variadic macros not yet implemented")
 
 #endif /* VARIADIC MACROS */
