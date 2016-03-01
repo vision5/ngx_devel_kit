@@ -17,6 +17,7 @@ Table of Contents
     * [Building as a dynamic module](#building-as-a-dynamic-module)
 * [Usage for developers](#usage-for-developers)
     * [Warning: using NDK_ALL](#warning-using-ndk_all)
+* [Modules using NDK](#modules-using-ndk)
 * [TODO](#todo)
 * [License](#license)
 * [Contributing / Feedback](#contributing--feedback)
@@ -161,6 +162,20 @@ DO NOT LEAVE `NDK_ALL` IN YOUR CONFIG FILE WHEN PUBLISHING
 Although the NDK is fairly small now, it could in time become a large repository
 of code that would, if using NDK_ALL, result in considerably more code being compiled
 than is necessary.
+
+[Back to TOC](#table-of-contents)
+
+Modules using NDK
+=================
+
+The following 3rd-party modules make use of NDK.
+
+* [ngx_http_lua_module](https://github.com/openresty/lua-nginx-module#readme)
+* [ngx_http_set_misc_module](https://github.com/openresty/set-misc-nginx-module#readme)
+* [ngx_http_encrypted_session_module](https://github.com/openresty/encrypted-session-nginx-module#readme)
+* [ngx_http_form_input_module](https://github.com/calio/form-input-nginx-module#readme)
+* [ngx_http_iconv_module](https://github.com/calio/iconv-nginx-module#readme)
+* [ngx_http_array_var_module](https://github.com/openresty/array-var-nginx-module#readme)
 
 [Back to TOC](#table-of-contents)
 
