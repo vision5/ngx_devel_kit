@@ -90,7 +90,8 @@ will need to do the following :
 e.g.
 
 ```bash
-./configure --add-module=/path/to/ndk/base  --add-module=/path/to/another/mod
+./configure --add-module=/path/to/ngx_devel_kit \
+            --add-module=/path/to/another/module
 ```
 
 [Back to TOC](#table-of-contents)
@@ -104,6 +105,7 @@ directive, for example,
 
 ```nginx
 load_module /path/to/modules/ndk_http_module.so;
+load_module /path/to/another/module.so;
 ```
 
 [Back to TOC](#table-of-contents)
