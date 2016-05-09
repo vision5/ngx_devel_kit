@@ -50,7 +50,7 @@ ndk_http_complex_value_array_create (ngx_conf_t *cf, char **s, ngx_int_t n)
 ngx_int_t
 ndk_http_complex_value_array_compile (ngx_conf_t *cf, ngx_array_t *a)
 {
-    ngx_int_t                   i;
+    ngx_uint_t                  i;
     ngx_http_complex_value_t   *cv;
 
     if (a == NULL || a == NGX_CONF_UNSET_PTR) {
@@ -109,7 +109,7 @@ ndk_conf_set_http_complex_value_array_slot (ngx_conf_t *cf, ngx_command_t *cmd, 
     ngx_http_complex_value_t    *cv;
     ngx_array_t                **a;
     ngx_conf_post_t             *post;
-    ngx_int_t                    i, alloc;
+    ngx_uint_t                   i, alloc;
 
     a = (ngx_array_t **) (p + cmd->offset);
 
