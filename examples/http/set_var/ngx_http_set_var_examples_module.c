@@ -107,7 +107,7 @@ ngx_http_set_var_concat2 (ngx_http_request_t *r, ngx_str_t *val, ngx_http_variab
     If the arguments used in the variable value filter do not all come directly from the conf
     file, or are not given in the order
 
-    direcive    $var_name   val1 "val2 string $var" ...
+    directive    $var_name   val1 "val2 string $var" ...
 
     then the _core functions should be used inside the function that is called when the directive
     is read.
