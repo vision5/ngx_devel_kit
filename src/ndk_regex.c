@@ -100,7 +100,7 @@ ndk_conf_set_regex_array_slot (ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
     ngx_array_t            **a;
     ngx_regex_elt_t         *re;   
     ngx_regex_compile_t      rc;
-    ngx_uint_t               i, n;
+    ngx_uint_t               i, n = 0;
     u_char                   errstr[NGX_MAX_CONF_ERRSTR];
 
     a = (ngx_array_t **) (p + cmd->offset);
@@ -162,7 +162,7 @@ ndk_conf_set_regex_array_caseless_slot (ngx_conf_t *cf, ngx_command_t *cmd, void
     ngx_array_t            **a;
     ngx_regex_elt_t         *re;   
     ngx_regex_compile_t      rc;
-    ngx_uint_t               i, n;
+    ngx_uint_t               i, n = 0;
     u_char                   errstr[NGX_MAX_CONF_ERRSTR];
 
     a = (ngx_array_t **) (p + cmd->offset);
