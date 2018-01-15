@@ -46,7 +46,7 @@ Status
 ======
 
 The NDK is now considered to be stable. It is already being used in quite a few third
-party modules.
+party modules (see list below).
 
 Features
 ========
@@ -177,6 +177,8 @@ The following 3rd-party modules make use of NDK.
 * [ngx_http_iconv_module](https://github.com/calio/iconv-nginx-module#readme)
 * [ngx_http_array_var_module](https://github.com/openresty/array-var-nginx-module#readme)
 
+If you would like to add your module to this list, please let us know.
+
 [Back to TOC](#table-of-contents)
 
 TODO
@@ -192,7 +194,7 @@ TODO
 License
 =======
 
-Copyright (c) 2010-2016, Marcus Clyne
+Copyright (c) 2010-2018, Marcus Clyne
 
 All rights reserved.
 
@@ -232,7 +234,6 @@ me at the address below, and I'll add them to the kit.
 Author
 ======
 
-Marcus Clyne (contact at simpl dot it)
+Marcus Clyne (https://github.com/simpl)
 
 [Back to TOC](#table-of-contents)
-
