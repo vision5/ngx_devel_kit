@@ -188,6 +188,7 @@ TODO
 * additional phase-handler functions
 * generically testing for needing to add a handler
 * remove dependency of set_var on OpenSSL being compiled in
+* for backward compatability, add the ndk_macros 
 
 [Back to TOC](#table-of-contents)
 
