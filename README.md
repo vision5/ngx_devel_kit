@@ -228,13 +228,13 @@ Contributing / Feedback
 
 If you are an Nginx module developer, and have developed some functions that are
 generic in nature (or would be easily adapted to be so), then please send them to
-me at the address below, and I'll add them to the kit.
+me at the address below, and I'll addmclyne to the kit.
 
 [Back to TOC](#table-of-contents)
 
 Author
 ======
 
-Marcus Clyne (@mclyne - formerly - https://github.com/simpl)
+Marcus Clyne (https://github.com/mclyne - formerly - https://github.com/simpl)
 
 [Back to TOC](#table-of-contents)
