@@ -151,7 +151,7 @@ displayed when compiling Nginx.
 
 [Back to TOC](#table-of-contents)
 
-Warning: using NDK_ALL
+Warning: Using NDK_ALL
 ----------------------
 
 You can also set `NDK_ALL` to include all the NDK modules.  This is primarily as
