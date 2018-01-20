@@ -235,7 +235,6 @@ me at the address below, and I'll addmclyne to the kit.
 Author
 ======
 
-Simpl (https://github.com/simpl)
-Marcus Clyne (https://github.com/mclyne)
+Marcus Clyne (https://github.com/mclyne - formerly - https://github.com/simpl)
 
 [Back to TOC](#table-of-contents)
