@@ -188,7 +188,7 @@ TODO
 * additional phase-handler functions
 * generically testing for needing to add a handler
 * remove dependency of set_var on OpenSSL being compiled in
-* for backward compatability, add the ndk_macros 
+* for backward compatability, add the ndk_macros
 
 [Back to TOC](#table-of-contents)
 
@@ -235,6 +235,7 @@ me at the address below, and I'll add them to the kit.
 Author
 ======
 
-Marcus Clyne (https://github.com/simpl)
+Simpl (https://github.com/simpl)
+Marcus Clyne (https://github.com/mclyne)
 
 [Back to TOC](#table-of-contents)
