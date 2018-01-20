@@ -228,7 +228,7 @@ Contributing / Feedback
 
 If you are an Nginx module developer, and have developed some functions that are
 generic in nature (or would be easily adapted to be so), then please send them to
-me at the address below, and I'll add them to the kit.
+me at the address below, and I'll addmclyne to the kit.
 
 [Back to TOC](#table-of-contents)
 
