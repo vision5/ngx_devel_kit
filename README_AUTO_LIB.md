@@ -10,7 +10,7 @@ cross-platform way to include external libraries.
 Any developers of Nginx modules are encouraged to use Auto Lib Core to handle library
 dependencies for their modules rather than writing their own custom handler from scratch.
 
-Note : the latest version can be found at github.com/simpl/ngx_auto_lib
+Note : The latest version can be found at github.com/simplresty/ngx_auto_lib
 
 
 Information for end users
@@ -68,7 +68,7 @@ Specifying a path to find a library
 If the version of a library you wish to include is in any of the standard paths (e.g.
 /usr/local, /usr ...), you will not need to specify a path to include the library.
 
-If you do wish to specify a specific path, in most cases just specifying 
+If you do wish to specify a specific path, in most cases just specifying
 [PFX]=/path/to/library will be sufficient. e.g.
 
 $ export MOZJS=/path/to/mozjs
@@ -106,8 +106,8 @@ searched.
 When searching under [PFX]_BASE no prefix is added to the search, but when searching under
 the directory that the Nginx source is located in, the prefix [pfx]- is automatically added.
 
-Note : there is currently a minor bug (due to the implementation of the 'sort' command) 
-means versions that include hyphens (e.g. 1.0.0-beta5) are checked before versions like 
+Note : there is currently a minor bug (due to the implementation of the 'sort' command)
+means versions that include hyphens (e.g. 1.0.0-beta5) are checked before versions like
 1.0.0a. This will be fixed soon, and searching of -build folders before normal source ones
 will be added too.
 
@@ -119,7 +119,7 @@ Shared or static?
 The default for most libraries is to look for shared libraries, though this can be overridden
 by the user by setting [PFX]_SHARED=NO.
 
-In the near future the default action will be to look for shared libraries then to look 
+In the near future the default action will be to look for shared libraries then to look
 for static libraries in each directory searched unless one of [PFX]_SHARED and/or
 [PFX]_STATIC = NO. If both are set to NO, then Auto Lib will not be used at all.
 
@@ -154,7 +154,7 @@ How Auto Lib Core works
 -----------------------
 
 Auto Lib Core works as an interface layer between the module and the auto/feature part of
-the Nginx source. This is the file that results in the 'checking for ...' lines that you 
+the Nginx source. This is the file that results in the 'checking for ...' lines that you
 see when you call ./configure.
 
 auto/feature works by using a few key variables (see below) to generate some C code, trying
@@ -162,8 +162,8 @@ to compile it to see if it works and optionally running the code. This output fi
 autotest.c (located under the objs/ directory whilst configure is running, but is deleted
 after each call to auto/feature).
 
-Normally, whenever an external library is required, a module developer will write a number 
-of calls to auto/feature manually in their config files - e.g. to check under a range of 
+Normally, whenever an external library is required, a module developer will write a number
+of calls to auto/feature manually in their config files - e.g. to check under a range of
 different possible locations to find a library. Apart from being tedious, this is obviously
 potentially error-prone.
 
@@ -180,7 +180,7 @@ Option 1 :
   located
 - add the following line to your config file
 
-  . $ngx_addon_dir/ngx_auto_lib_core 
+  . $ngx_addon_dir/ngx_auto_lib_core
 
 NOTE : if you want to include the file in a different directory to your config
 file, you will need to change both the include line in your config file AND
@@ -189,7 +189,7 @@ has $ngx_addon_dir/ngx_auto_lib_core in it)
 
 Option 2 :
 
-- make the Nginx Development Kit (github.com/simpl-it/ngx_devel_kit) a dependency 
+- make the Nginx Development Kit (github.com/simpl-it/ngx_devel_kit) a dependency
   for your module (Auto Lib Core is included automatically with it)
 
 
@@ -229,10 +229,10 @@ Calling ngx_auto_lib_init() and ngx_auto_lib_run()
 
 You can pass either one or two variables to ngx_auto_lib_init(). The first is the name of
 the library as it will appear when running ./configure, the second is the prefix that is
-used for internal variables and looking for directory prefixes. If the second is not 
+used for internal variables and looking for directory prefixes. If the second is not
 specified, it defaults to the first.
 
-The init function resets all key variables and functions, so it must be called before 
+The init function resets all key variables and functions, so it must be called before
 setting any other variables or functions that are to be used as hooks (see the notes below).
 
 ngx_auto_lib_run() should be called in the config files after all the variables and hooks
@@ -315,9 +315,9 @@ Hooks
 
 To facilitate using Auto Lib Core in a flexible way, a number of 'hooks' have been
 placed in the testing cycle. These hooks are implemented as functions that you define
-in your config file which are called if required by the core library. In the core 
+in your config file which are called if required by the core library. In the core
 library they are left as empty functions that return either 0 or 1. Any functions
-you write will 
+you write will
 
 Note : ngx_auto_lib_init() resets the variables and functions each time it is called, so
 you must DEFINE HOOKS AFTER YOU CALL ngx_auto_lib_init.
@@ -337,7 +337,7 @@ Although in most cases Auto Lib Core will be used where external libraries are
 definitely required (for a module to work), this may not always be the case. In the
 standard Nginx Auto Lib module (github.com/simpl-it/ngx_auto_lib) - which is designed
 to improve the inclusion of OpenSSL, PCRE and Zlib libraries and increase compilation
-speed where possible - the libraries are not always required, so checks are made to 
+speed where possible - the libraries are not always required, so checks are made to
 see if it is necessary.
 
 
@@ -348,11 +348,11 @@ How Auto Lib Core checks if a library is required - ngx_auto_lib_check_require()
 - search for USE_[PFX]=YES (it is set to YES by default for most modules)
 - search for any external libraries that have been included in the CORE_LIBS or ADDON_LIBS
   variables that use the same lib name as any set in ngx_feature_lib_names
-- search for any macros that have been defined either in the CFLAGS variable or using 
-  auto/have or auto/define as set in the ngx_feature_check_macros_defined and 
+- search for any macros that have been defined either in the CFLAGS variable or using
+  auto/have or auto/define as set in the ngx_feature_check_macros_defined and
   ngx_feature_ngx_macros_non_zero variables
 - any custom checks implemented by creating an ngx_auto_lib_check hook function (which
-  should return 0 if the library is required and return 1 at the end if the module is 
+  should return 0 if the library is required and return 1 at the end if the module is
   not required)
 
 
@@ -392,4 +392,3 @@ Copyright
 ---------
 
     Marcus Clyne (c) 2010  (http://simpl.it)
-
