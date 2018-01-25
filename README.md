@@ -40,10 +40,8 @@ https://github.com/simplresty/ngx_devel_kit
 This is one of a number of Nginx modules that have been moved from 'simpl' to 'simplresty'. 
 See [below](#see-also) for more information on how these organizations are now used.
 
-To prevent any problems with updates, all repos that were previously under the 'simpl' 
-user will be forked and synced from the 'simplresty' repo.
-
-Sorry for any inconvenience this causes.
+To prevent any problems with updates, all repos that were previously under the 'simpl' user 
+will be forked and synced from the 'simplresty' repo. Sorry for any inconvenience this causes.
 
 [Back to TOC](#table-of-contents)
 
