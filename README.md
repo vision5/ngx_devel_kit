@@ -1,7 +1,7 @@
 Name
 ====
 
-NDK - Nginx Development Kit
+Nginx Development Kit (NDK)
 
 Table of Contents
 =================
