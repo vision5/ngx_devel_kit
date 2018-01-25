@@ -7,7 +7,7 @@ Table of Contents
 =================
 
 * [Name](#name)
-* [Change of Location](#change-of-location)
+* [Change of Repo Location](#change-of-repo-location)
 * [Synopsis](#synopsis)
 * [Status](#status)
 * [Features](#features)
@@ -24,8 +24,8 @@ Table of Contents
 * [Contributing / Feedback](#contributing--feedback)
 * [Author](#author)
 
-Change of Location
-==================
+Change of Repo Location
+=======================
 
 This repo use to be located at :
 
