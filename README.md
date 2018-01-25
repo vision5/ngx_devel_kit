@@ -261,24 +261,24 @@ me at the address below, and I'll addmclyne to the kit.
 Author
 ======
 
-* Marcus Clyne (https://github.com/mclyne)
+* [Marcus Clyne](https://github.com/mclyne)
 
 [Back to TOC](#table-of-contents)
 
 See Also
 ========
 
-* **[SimplResty](https://github.com/simplresty)** : A web-application framework integrating OpenResty, Couchbase, React 
-and much more 
-* **[Simpl](https://github.com/simpl)** : A shell platform that integrates repositories stored on Github, Bitbucket 
-etc., to help facilitate shell-based tasks
+* **[SimplResty](https://github.com/simplresty)** : A web-application framework integrating 
+OpenResty, Couchbase, React and much more 
+* **[Simpl](https://github.com/simpl)** : A shell platform that integrates repositories stored 
+on Github, Bitbucket etc., to help facilitate shell-based tasks
 
 [Back to TOC](#table-of-contents)
 
 Special Thanks
 ==============
 
-A special thanks goes to Yichun Zhang (https://github.com/agentzh) for helping to maintain
+A special thanks goes to [Yichun Zhang](https://github.com/agentzh) for helping to maintain
 this module.
 
 [Back to TOC](#table-of-contents)
