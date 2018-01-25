@@ -10,7 +10,7 @@ cross-platform way to include external libraries.
 Any developers of Nginx modules are encouraged to use Auto Lib Core to handle library
 dependencies for their modules rather than writing their own custom handler from scratch.
 
-Note : The latest version can be found [here](github.com/simplresty/ngx_auto_lib).
+Note : The latest version can be found [here](https://github.com/simplresty/ngx_auto_lib).
 
 
 Information for end users
@@ -378,8 +378,8 @@ that the linker links to is the same as the one specified. This is done because
 To do
 -----
 
-- change how library paths are searched to include both shared and static libraries
-- touch up documentation
+- Change how library paths are searched to include both shared and static libraries
+- Touch up documentation
 
 
 License
