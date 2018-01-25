@@ -7,6 +7,7 @@ Table of Contents
 =================
 
 * [Name](#name)
+* [Change of Location](#change-of-location)
 * [Synopsis](#synopsis)
 * [Status](#status)
 * [Features](#features)
@@ -22,6 +23,31 @@ Table of Contents
 * [License](#license)
 * [Contributing / Feedback](#contributing--feedback)
 * [Author](#author)
+
+Change of Location
+==================
+
+This repo use to be located at :
+
+https://github.com/simpl/ngx_devel_kit
+
+The new location is :
+
+https://github.com/simplresty/ngx_devel_kit
+
+This is one of a number of Nginx modules that have been moved from 'simpl' to 'simplresty'.
+
+From now on, the two usernames will be used as follows :
+
+- **simplresty** : A web-application framework integrating OpenResty, Couchbase, React 
+and much more
+- **simpl** : A shell platform that integrates repositories stored on Github, Bitbucket 
+etc., to help facilitate shell-based tasks
+
+To prevent any problems with updates, all repos that were previously under the 'simpl' 
+user will be forked and synced from the 'simplresty' repo.
+
+Sorry for any inconvenience this causes.
 
 Synopsis
 ========
