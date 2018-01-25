@@ -49,6 +49,8 @@ user will be forked and synced from the 'simplresty' repo.
 
 Sorry for any inconvenience this causes.
 
+[Back to TOC](#table-of-contents)
+
 Synopsis
 ========
 
@@ -68,11 +70,15 @@ their own modules which features of the NDK they wish to use (explained below).
 If you are not an Nginx module developer, then the only useful part of this project
 will be the 'usage for users' section below.
 
+[Back to TOC](#table-of-contents)
+
 Status
 ======
 
 The NDK is now considered to be stable. It is already being used in quite a few third
 party modules (see list below).
+
+[Back to TOC](#table-of-contents)
 
 Features
 ========
