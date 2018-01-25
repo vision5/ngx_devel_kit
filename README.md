@@ -22,7 +22,9 @@ Table of Contents
 * [TODO](#todo)
 * [License](#license)
 * [Contributing / Feedback](#contributing--feedback)
-* [Author](#author)
+* [Authors](#authors)
+* [See Also](#see-also)
+* [Special Thanks](#special-thanks)
 
 Change of Repo Location
 =======================
@@ -35,14 +37,8 @@ The new location is :
 
 https://github.com/simplresty/ngx_devel_kit
 
-This is one of a number of Nginx modules that have been moved from 'simpl' to 'simplresty'.
-
-From now on, the two usernames will be used as follows :
-
-- **simplresty** : A web-application framework integrating OpenResty, Couchbase, React 
-and much more
-- **simpl** : A shell platform that integrates repositories stored on Github, Bitbucket 
-etc., to help facilitate shell-based tasks
+This is one of a number of Nginx modules that have been moved from 'simpl' to 'simplresty'. 
+See [below](#see-also) for more information on how these organizations are now used.
 
 To prevent any problems with updates, all repos that were previously under the 'simpl' 
 user will be forked and synced from the 'simplresty' repo.
@@ -267,7 +263,24 @@ me at the address below, and I'll addmclyne to the kit.
 Author
 ======
 
-* Simpl (https://github.com/simpl)
 * Marcus Clyne (https://github.com/mclyne)
+
+[Back to TOC](#table-of-contents)
+
+See Also
+========
+
+* **SimplResty** (https://github.com/simplresty) : A web-application framework integrating 
+OpenResty, Couchbase, React and much more
+* **Simpl** (https://github.com/simpl) : A shell platform that integrates repositories stored 
+on Github, Bitbucket etc., to help facilitate shell-based tasks
+
+[Back to TOC](#table-of-contents)
+
+Special Thanks
+==============
+
+A special thanks goes to Yichun Zhang (https://github.com/agentzh) for helping to maintain
+this module.
 
 [Back to TOC](#table-of-contents)
