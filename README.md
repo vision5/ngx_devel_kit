@@ -268,10 +268,10 @@ Author
 See Also
 ========
 
-* **SimplResty** : A web-application framework integrating OpenResty, Couchbase, React 
-and much more (https://github.com/simplresty)
-* **Simpl** : A shell platform that integrates repositories stored on Github, Bitbucket 
-etc., to help facilitate shell-based tasks (https://github.com/simpl)
+* **[simplresty](https://github.com/simplresty)** : A web-application framework integrating OpenResty, Couchbase, React 
+and much more 
+* **[simpl](https://github.com/simpl)** : A shell platform that integrates repositories stored on Github, Bitbucket 
+etc., to help facilitate shell-based tasks
 
 [Back to TOC](#table-of-contents)
 
