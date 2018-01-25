@@ -7,7 +7,7 @@ Table of Contents
 =================
 
 * [Name](#name)
-* [Change of Repo Location](#change-of-repo-location)
+* [New Repo Location](#new-repo-location)
 * [Synopsis](#synopsis)
 * [Status](#status)
 * [Features](#features)
@@ -26,16 +26,16 @@ Table of Contents
 * [See Also](#see-also)
 * [Special Thanks](#special-thanks)
 
-Change of Repo Location
-=======================
+New Repo Location
+=================
 
-This repo use to be located at :
-
-https://github.com/simpl/ngx_devel_kit
-
-The new location is :
+The new location for this repo is :
 
 https://github.com/simplresty/ngx_devel_kit
+
+This old location was :
+
+https://github.com/simpl/ngx_devel_kit
 
 This is one of a number of Nginx modules that have been moved from 'simpl' to 'simplresty'. 
 See [below](#see-also) for more information on how these organizations are now used.
