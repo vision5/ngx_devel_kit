@@ -10,7 +10,7 @@ cross-platform way to include external libraries.
 Any developers of Nginx modules are encouraged to use Auto Lib Core to handle library
 dependencies for their modules rather than writing their own custom handler from scratch.
 
-Note : The latest version can be found at github.com/simplresty/ngx_auto_lib
+Note : The latest version can be found [here](github.com/simplresty/ngx_auto_lib).
 
 
 Information for end users
@@ -391,4 +391,4 @@ License
 Copyright
 ---------
 
-    Marcus Clyne (c) 2010  (http://simpl.it)
+    [Marcus Clyne](https://github.com/mclyne) (c) 2010
