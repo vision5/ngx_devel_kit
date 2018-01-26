@@ -250,6 +250,7 @@ See Also
 
 [SimplResty](https://github.com/simplresty) : A web-application framework integrating
 OpenResty, Couchbase, React and much more
+
 [Simpl](https://github.com/simpl) : A shell platform that integrates repositories stored
 on Github, Bitbucket etc., to help facilitate shell-based tasks
 
