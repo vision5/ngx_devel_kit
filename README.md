@@ -22,7 +22,6 @@ Table of Contents
 * [License](#license)
 * [Contributing / Feedback](#contributing--feedback)
 * [Authors](#authors)
-* [See Also](#see-also)
 * [Special Thanks](#special-thanks)
 
 Synopsis
@@ -245,16 +244,6 @@ Author
 
 [Back to TOC](#table-of-contents)
 
-See Also
-========
-
-[SimplResty](https://github.com/simplresty) : A web-application framework integrating
-OpenResty, Couchbase, React and much more
-
-[Simpl](https://github.com/simpl) : A shell platform that integrates repositories stored
-on Github, Bitbucket etc., to help facilitate shell-based tasks
-
-[Back to TOC](#table-of-contents)
 
 Special Thanks
 ==============
