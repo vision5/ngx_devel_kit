@@ -145,7 +145,7 @@ ndk_upstream_list (ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
 
     /* allocate space for all buckets */
 
-    bucket = ngx_palloc (cf->pool, buckets * sizeof (ngx_str_t **));
+    bucket = ngx_palloc (cf->pool, buckets * sizeof (ngx_str_t *));
     if (bucket == NULL)
         return  NGX_CONF_ERROR;
 
